@@ -2,12 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Consultoría Contable</title>
+  <title>El Contasol SAC</title>
 </head>
 <body>
 
-<h1>Consultoría Contable</h1>
-<p>ERP desarrollado con GitHub, Supabase y n8n</p>
+<h1>El Contasol SAC</h1>
+<p>Consultoría y asesoría contable</p>
+
+<hr>
+
+<h2>Servicios que ofrecemos</h2>
+
+<ul>
+  <li>Consultoría contable</li>
+  <li>Asesoría tributaria</li>
+  <li>Declaraciones SUNAT</li>
+  <li>Auditoría básica</li>
+</ul>
+
+<hr>
+
+<h2>Contáctanos</h2>
 
 <form>
   <label>Nombre:</label><br>
