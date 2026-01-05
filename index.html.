@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consultoría Contable</title>
+</head>
+<body>
+
+<h1>Consultoría Contable</h1>
+<p>ERP desarrollado con GitHub, Supabase y n8n</p>
+
+<form>
+  <label>Nombre:</label><br>
+  <input type="text"><br><br>
+
+  <label>Correo:</label><br>
+  <input type="email"><br><br>
+
+  <button>Enviar</button>
+</form>
+
+</body>
+</html>
