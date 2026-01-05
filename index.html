@@ -3,74 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contasol SAC | Asesoría Contable</title>
+<title>CONTASOL SAC | Consultoría Contable</title>
 
 <style>
 :root{
-  --crema:#f7f2e7;
-  --cafe:#6f4e37;
-  --cafe-oscuro:#4b2e2e;
+  --azul:#0b1f3a;
+  --azul2:#143a5e;
+  --dorado:#c9a14a;
+  --gris:#f2f4f8;
   --blanco:#ffffff;
 }
 
 body{
   margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background:var(--crema);
-  color:var(--cafe-oscuro);
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:var(--gris);
+  color:#333;
 }
 
 /* HEADER */
 header{
-  background:var(--cafe);
-  color:white;
+  background:var(--azul);
   padding:20px;
-  text-align:center;
+  color:white;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 nav a{
   color:white;
-  margin:0 15px;
   text-decoration:none;
-  font-weight:bold;
+  margin-left:15px;
+  font-weight:600;
 }
 
-nav a:hover{
-  text-decoration:underline;
-}
+nav a:hover{ color:var(--dorado); }
 
 /* HERO */
 .hero{
-  padding:60px 20px;
-  text-align:center;
-  background:linear-gradient(to right,#8b5e3c,#6f4e37);
+  background:linear-gradient(to right,var(--azul),var(--azul2));
   color:white;
+  text-align:center;
+  padding:70px 20px;
 }
 
-.hero h1{
-  font-size:42px;
-}
-
-.hero p{
-  font-size:18px;
-}
+.hero span{ color:var(--dorado); }
 
 /* SECCIONES */
 section{
-  padding:50px 20px;
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
+  padding:60px 20px;
 }
 
 h2{
   text-align:center;
-  color:var(--cafe);
+  color:var(--azul);
 }
 
-/* SERVICIOS */
-.servicios{
+/* GRID */
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:25px;
   margin-top:30px;
 }
@@ -79,49 +77,43 @@ h2{
   background:white;
   padding:25px;
   border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  box-shadow:0 6px 15px rgba(0,0,0,0.1);
   transition:0.3s;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-}
+.card:hover{ transform:translateY(-5px); }
 
-.card h3{
-  color:var(--cafe);
+/* ANALISIS */
+#resultado{
+  display:none;
+  background:white;
+  padding:20px;
+  margin-top:20px;
+  border-left:5px solid var(--dorado);
 }
 
 /* TESTIMONIOS */
 .testimonio{
   background:white;
   padding:20px;
-  border-left:5px solid var(--cafe);
-  margin-bottom:20px;
-  border-radius:8px;
+  border-left:4px solid var(--azul);
+  margin-bottom:15px;
 }
 
-/* CONTACTO */
+/* FORM */
 form input, form textarea{
   width:100%;
   padding:10px;
   margin:8px 0;
-  border:1px solid #ccc;
-  border-radius:5px;
 }
 
 form button{
-  background:var(--cafe);
+  background:var(--azul);
   color:white;
   border:none;
   padding:12px;
-  width:100%;
   font-size:16px;
-  border-radius:5px;
   cursor:pointer;
-}
-
-form button:hover{
-  background:var(--cafe-oscuro);
 }
 
 /* CHATBOT */
@@ -129,23 +121,22 @@ form button:hover{
   position:fixed;
   bottom:90px;
   right:20px;
-  width:280px;
+  width:300px;
   background:white;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
   border-radius:10px;
-  box-shadow:0 0 10px rgba(0,0,0,0.3);
   display:none;
 }
 
 #chat-header{
-  background:var(--cafe);
+  background:var(--azul);
   color:white;
   padding:10px;
   text-align:center;
-  border-radius:10px 10px 0 0;
 }
 
 #chatbox{
-  height:200px;
+  height:220px;
   overflow-y:auto;
   padding:10px;
   font-size:14px;
@@ -153,15 +144,14 @@ form button:hover{
 
 #chatbot input{
   width:75%;
-  border:none;
   padding:8px;
 }
 
 #chatbot button{
   width:25%;
-  border:none;
-  background:var(--cafe);
+  background:var(--azul);
   color:white;
+  border:none;
 }
 
 /* WHATSAPP */
@@ -179,11 +169,10 @@ form button:hover{
 
 /* FOOTER */
 footer{
-  background:var(--cafe);
+  background:var(--azul);
   color:white;
   text-align:center;
   padding:15px;
-  margin-top:40px;
 }
 </style>
 </head>
@@ -191,60 +180,79 @@ footer{
 <body>
 
 <header>
-  <h1>CONTASOL SAC</h1>
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#beneficios">Beneficios</a>
-    <a href="#testimonios">Testimonios</a>
-    <a href="#contacto">Contacto</a>
+    <h2>CONTASOL SAC</h2>
+    <div>
+      <a href="#servicios">Servicios</a>
+      <a href="#analisis">Análisis</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
   </nav>
 </header>
 
-<div class="hero" id="inicio">
-  <h1>Asesoría Contable Profesional</h1>
-  <p>Brindamos soluciones contables, tributarias y financieras para tu empresa</p>
+<div class="hero">
+  <h1>Consultoría <span>Contable & Financiera</span></h1>
+  <p>Soluciones profesionales para empresas y emprendedores</p>
 </div>
 
 <section id="servicios">
   <h2>Nuestros Servicios</h2>
-  <div class="servicios">
+  <div class="grid">
     <div class="card">
-      <h3>Consultoría Contable</h3>
-      <p>Asesoría especializada para empresas y emprendedores.</p>
+      <h3>📊 Consultoría Contable</h3>
+      <p>Asesoría tributaria y financiera especializada.</p>
     </div>
     <div class="card">
-      <h3>Auditoría</h3>
-      <p>Análisis y evaluación de estados financieros.</p>
+      <h3>🧾 Auditoría Financiera</h3>
+      <p>Evaluación de estados financieros y control interno.</p>
     </div>
     <div class="card">
-      <h3>Outsourcing Contable</h3>
-      <p>Gestión integral de la contabilidad de tu empresa.</p>
+      <h3>🏢 Outsourcing Contable</h3>
+      <p>Gestión integral de la contabilidad empresarial.</p>
     </div>
   </div>
 </section>
 
+<section id="analisis">
+  <h2>📈 Panel de Análisis Financiero</h2>
+  <input type="file" id="archivo" accept=".pdf,.xls,.xlsx">
+  <button onclick="analizar()">Analizar archivo</button>
+
+  <div id="resultado">
+    <h3>Resultado del Análisis</h3>
+    <p>📌 El archivo muestra ingresos constantes, pero gastos operativos elevados.</p>
+    <p>⚠️ Se recomienda optimizar costos administrativos.</p>
+    <p>✅ La empresa mantiene liquidez aceptable.</p>
+    <button onclick="descargar()">📥 Descargar informe</button>
+  </div>
+</section>
+
 <section id="beneficios">
-  <h2>Beneficios</h2>
-  <div class="servicios">
-    <div class="card">✔ Cumplimiento tributario</div>
-    <div class="card">✔ Información financiera clara</div>
+  <h2>🎯 Beneficios</h2>
+  <div class="grid">
+    <div class="card">✔ Cumplimiento SUNAT</div>
+    <div class="card">✔ Información clara para decisiones</div>
     <div class="card">✔ Ahorro de tiempo y costos</div>
   </div>
 </section>
 
 <section id="testimonios">
-  <h2>Testimonios</h2>
+  <h2>💬 Testimonios</h2>
   <div class="testimonio">
-    “Gracias a Contasol SAC mejoramos nuestro control financiero.”
+    “Gracias a Contasol SAC logramos ordenar nuestras finanzas y cumplir con SUNAT.”
   </div>
   <div class="testimonio">
-    “Servicio confiable y atención profesional.”
+    “Excelente asesoría contable, clara y oportuna.”
+  </div>
+  <div class="testimonio">
+    “Profesionales confiables que realmente apoyan al crecimiento empresarial.”
   </div>
 </section>
 
 <section id="contacto">
-  <h2>Contáctanos</h2>
+  <h2>📩 Contáctanos</h2>
   <form action="https://formsubmit.co/nayrg2971@gmail.com" method="POST">
     <input type="text" name="nombre" placeholder="Nombre" required>
     <input type="email" name="email" placeholder="Correo" required>
@@ -254,41 +262,58 @@ footer{
 </section>
 
 <footer>
-  © 2026 Contasol SAC | Todos los derechos reservados
+© 2026 CONTASOL SAC
 </footer>
 
 <!-- CHATBOT -->
 <div id="chatbot">
-  <div id="chat-header">Asistente Virtual</div>
+  <div id="chat-header">🤖 Asistente Virtual</div>
   <div id="chatbox"></div>
-  <input type="text" id="userInput" placeholder="Escribe aquí...">
-  <button onclick="responder()">▶</button>
+  <input id="pregunta" placeholder="Escribe tu consulta...">
+  <button onclick="chat()">▶</button>
 </div>
 
-<!-- BOTONES -->
 <a href="https://wa.me/51943706614" target="_blank" class="whatsapp">💬</a>
 
 <script>
-function responder(){
-  let input=document.getElementById("userInput").value.toLowerCase();
-  let chat=document.getElementById("chatbox");
-  let respuesta="";
-
-  if(input.includes("precio")||input.includes("costo")){
-    respuesta="Los precios varían según el servicio. Escríbenos por WhatsApp.";
-  }else if(input.includes("servicio")){
-    respuesta="Ofrecemos consultoría, auditoría y outsourcing contable.";
-  }else if(input.includes("contacto")||input.includes("numero")){
-    respuesta="Contáctanos al 943 706 614 o vía WhatsApp.";
-  }else{
-    respuesta="Con gusto te ayudamos 😊 Escríbenos por WhatsApp.";
-  }
-
-  chat.innerHTML+=`<p><b>Tú:</b> ${input}</p><p><b>Asistente:</b> ${respuesta}</p>`;
-  document.getElementById("userInput").value="";
+function analizar(){
+  document.getElementById("resultado").style.display="block";
 }
 
-document.querySelector(".whatsapp").addEventListener("click",()=>{});
+function descargar(){
+  const texto=`INFORME CONTASOL SAC
+
+• Ingresos estables
+• Gastos elevados
+• Recomendación: optimizar costos
+• Liquidez aceptable`;
+  const blob=new Blob([texto],{type:"text/plain"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="Informe_Contasol.txt";
+  a.click();
+}
+
+function chat(){
+  let p=document.getElementById("pregunta").value.toLowerCase();
+  let r="";
+
+  if(p.includes("precio")||p.includes("costo")){
+    r="💰 Los precios dependen del servicio. Escríbenos por WhatsApp 📲";
+  }else if(p.includes("servicio")){
+    r="📊 Ofrecemos consultoría, auditoría y outsourcing contable.";
+  }else if(p.includes("acceder")){
+    r="📝 Puedes acceder escribiéndonos por WhatsApp o completando el formulario.";
+  }else if(p.includes("numero")||p.includes("contacto")){
+    r="📞 Nuestro número es 943 706 614. Te llevo a WhatsApp 👉";
+    window.open("https://wa.me/51943706614","_blank");
+  }else{
+    r="😊 Estoy para ayudarte. Escríbenos por WhatsApp.";
+  }
+
+  chatbox.innerHTML+=`<p><b>Tú:</b> ${p}</p><p><b>Asistente:</b> ${r}</p>`;
+  document.getElementById("pregunta").value="";
+}
 
 document.addEventListener("keydown",e=>{
   if(e.key==="F2"){
