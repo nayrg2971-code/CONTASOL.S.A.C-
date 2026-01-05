@@ -1,36 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>CONTASOL SAC</title>
+<meta charset="UTF-8">
+<title>CONTASOL SAC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f1e8;
+  color:#4b2e2e;
+}
+
+header{
+  background:#6f4e37;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+nav a{
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+section{
+  padding:40px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.servicios, .beneficios{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.testimonio{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+footer{
+  background:#6f4e37;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+/* WhatsApp */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:white;
+  padding:15px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Chatbot */
+#chatbot{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  width:280px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.2);
+  overflow:hidden;
+}
+
+#chatbox{
+  height:200px;
+  padding:10px;
+  overflow-y:auto;
+  font-size:14px;
+}
+
+#chatbot input{
+  width:70%;
+  border:none;
+  padding:10px;
+}
+
+#chatbot button{
+  width:30%;
+  border:none;
+  background:#6f4e37;
+  color:white;
+  cursor:pointer;
+}
+
+/* Formulario */
+form input, form textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+}
+
+form button{
+  background:#6f4e37;
+  color:white;
+  padding:10px;
+  border:none;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-<h1>CONTASOL SAC</h1>
-<p>Página web sobre consultoría contable</p>
+<header>
+  <h1>CONTASOL SAC</h1>
+  <nav>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
-<hr>
+<section id="nosotros">
+  <h2>Sobre Nosotros</h2>
+  <p>
+    Somos CONTASOL SAC, una empresa especializada en servicios contables,
+    financieros y de asesoría empresarial, orientada a brindar soluciones
+    claras, confiables y oportunas para la toma de decisiones.
+  </p>
+</section>
 
-<h2>Servicios</h2>
-<ul>
-  <li>Consultoría contable</li>
-  <li>Asesoría tributaria</li>
-  <li>Declaraciones SUNAT</li>
-  <li>Auditoría básica</li>
-</ul>
+<section id="servicios">
+  <h2>Nuestros Servicios</h2>
+  <div class="servicios">
+    <div class="card">
+      <h3>Consultoría Contable</h3>
+      <p>Asesoría financiera, tributaria y contable personalizada.</p>
+    </div>
+    <div class="card">
+      <h3>Auditoría</h3>
+      <p>Evaluación y revisión de estados financieros.</p>
+    </div>
+    <div class="card">
+      <h3>Outsourcing Contable</h3>
+      <p>Gestión integral de la contabilidad de tu empresa.</p>
+    </div>
+  </div>
+</section>
 
-<hr>
+<section id="beneficios">
+  <h2>Beneficios</h2>
+  <div class="beneficios">
+    <div class="card">✔️ Atención personalizada</div>
+    <div class="card">✔️ Información financiera clara</div>
+    <div class="card">✔️ Ahorro de tiempo y costos</div>
+    <div class="card">✔️ Cumplimiento tributario</div>
+  </div>
+</section>
 
-<h2>Contacto</h2>
-<form>
-  <label>Nombre:</label><br>
-  <input type="text"><br><br>
+<section id="testimonios">
+  <h2>Testimonios</h2>
+  <div class="testimonio">
+    “CONTASOL SAC nos ayudó a mejorar el control financiero de nuestra empresa.”
+  </div>
+  <div class="testimonio">
+    “Excelente asesoría y atención profesional.”
+  </div>
+</section>
 
-  <label>Correo:</label><br>
-  <input type="email"><br><br>
+<section id="contacto">
+  <h2>Contacto</h2>
+  <form action="https://formsubmit.co/nayrg2971@gmail.com" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="email" name="email" placeholder="Correo" required>
+    <textarea name="mensaje" placeholder="Mensaje"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
-  <button>Enviar</button>
-</form>
+<footer>
+  © 2026 CONTASOL SAC – Todos los derechos reservados
+</footer>
+
+<!-- WhatsApp -->
+<a class="whatsapp" href="https://wa.me/51943706614" target="_blank">
+💬 WhatsApp
+</a>
+
+<!-- Chatbot -->
+<div id="chatbot">
+  <div id="chatbox">
+    <p><b>Asistente:</b> Hola 👋 ¿En qué puedo ayudarte?</p>
+  </div>
+  <input type="text" id="userInput" placeholder="Escribe aquí...">
+  <button onclick="responder()">Enviar</button>
+</div>
+
+<script>
+function responder(){
+  let input = document.getElementById("userInput").value.toLowerCase();
+  let chat = document.getElementById("chatbox");
+  let respuesta = "";
+
+  if(input.includes("precio") || input.includes("costo")){
+    respuesta = "Nuestros precios varían según el servicio. Escríbenos por WhatsApp 📲";
+  }
+  else if(input.includes("servicios")){
+    respuesta = "Ofrecemos consultoría contable, auditoría y outsourcing.";
+  }
+  else if(input.includes("contacto") || input.includes("numero")){
+    respuesta = "Puedes comunicarte al 943 706 614 o por WhatsApp.";
+  }
+  else{
+    respuesta = "Para más información, contáctanos por WhatsApp 😊";
+  }
+
+  chat.innerHTML += "<p><b>Tú:</b> "+input+"</p>";
+  chat.innerHTML += "<p><b>Asistente:</b> "+respuesta+"</p>";
+  document.getElementById("userInput").value="";
+}
+</script>
 
 </body>
 </html>
