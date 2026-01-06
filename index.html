@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CONTASOL SAC | Asesoría Contable Profesional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav>
+        <span class="brand">CONTASOL S.A.C.</span>
+        <div class="menu">
+            <a href="#servicios">Servicios</a>
+            <a href="#faq">Preguntas</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Asesoría Contable & Tributaria</h1>
+    <p>Impulsamos la estabilidad financiera y el crecimiento de tu empresa.</p>
+    <button class="btn-principal" onclick="agendarCita()">Agendar Consultoría 📊</button>
+</section>
+
+<section id="servicios" class="section">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="grid">
+        <div class="card">
+            <i class="fas fa-calculator"></i>
+            <h3>Consultoría Contable</h3>
+            <p>Gestión contable precisa, clara y conforme a la normativa vigente.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-balance-scale"></i>
+            <h3>Asesoría Tributaria</h3>
+            <p>Planeamiento fiscal estratégico para optimizar impuestos.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-briefcase"></i>
+            <h3>Outsourcing</h3>
+            <p>Externalización contable segura y eficiente para tu empresa.</p>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="section light">
+    <h2 class="section-title">Preguntas Frecuentes</h2>
+
+    <div class="faq-item">
+        <button class="faq-question">💰 ¿Cuánto cuestan los servicios?</button>
+        <div class="faq-answer">Los precios varían según el tipo y tamaño de empresa. Escríbenos para una cotización personalizada.</div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">📂 ¿Cómo accedo a los servicios?</button>
+        <div class="faq-answer">Puedes contactarnos vía WhatsApp o formulario web y coordinamos una reunión.</div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">📞 ¿Número de contacto?</button>
+        <div class="faq-answer">Comunícate al <strong>+51 943 706 614</strong>.</div>
+    </div>
+</section>
+
+<section id="contacto" class="section">
+    <h2 class="section-title">Contáctanos</h2>
+    <p class="center">📧 nayrg2971@gmail.com | 📞 943 706 614</p>
+</section>
+
+<footer>
+    <p>© 2026 CONTASOL S.A.C. – Huaraz, Perú</p>
+</footer>
+
+<!-- Botón WhatsApp -->
+<a class="whatsapp-btn" href="https://wa.me/51943706614" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
