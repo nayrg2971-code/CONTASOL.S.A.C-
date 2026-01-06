@@ -2,31 +2,45 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>CONTASOL SAC | Gestión Contable en Huaraz</title>
-    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTASOL SAC | Asesoría Contable en Huaraz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <nav>
-        <img src="img/logo.jpg" alt="Contasol Logo" height="60">
         <a href="#servicios">Servicios</a>
-        <a href="#aliados">Respaldo</a>
-        <a href="#citas" style="background:var(--marron-oscuro); color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">AGENDAR CITA</a>
+        <img src="img/logo.jpg" alt="Contasol Logo" class="logo-nav">
+        <a href="#contacto">Contacto</a>
     </nav>
 </header>
 
-<section id="servicios">
-    <h2>Nuestros Servicios Especializados</h2>
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">
-        <div class="servicio-card">
-            <i class="fas fa-book-open" style="font-size:30px; color:var(--dorado);"></i>
-            <h3>Gestión Contable</h3>
-            <p>Procesamiento de información financiera bajo normas locales e internacionales.</p>
+<section class="hero">
+    <h1>Excelencia Contable y Tributaria</h1>
+    <p>Impulsamos el crecimiento de su empresa con estrategias financieras sólidas.</p>
+    <button onclick="agendarCita()" class="btn-principal">AGENDAR CONSULTORÍA 🎊</button>
+</section>
+
+<section id="aliados">
+    <h3>Instituciones que Respaldan nuestra Labor</h3>
+    <div class="logo-grid">
+        <div class="aliado-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sunat_logo.svg/1200px-Sunat_logo.svg.png" alt="SUNAT">
+            <small>ENTIDAD FISCALIZADORA</small>
         </div>
+        <div class="aliado-item">
+            <img src="https://jdccpp.org.pe/images/logo_colegio.png" alt="Colegio de Contadores">
+            <small>CONTADORES COLEGIADOS</small>
         </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BBVA_2019.svg/1200px-BBVA_2019.svg.png" class="banco-logo" alt="BBVA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Interbank_logo.svg/1200px-Interbank_logo.svg.png" class="banco-logo" alt="Interbank">
+    </div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script> </body>
+<script src="script.js"></script>
+</body>
 </html>
