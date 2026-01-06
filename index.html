@@ -1,758 +1,334 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contabilidad - Cuentas Claras para Todos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Esquema de colores: verde claro, azul y plomo */
-        :root {
-            --verde-claro: #90EE90;
-            --azul: #1E90FF;
-            --plomo: #708090;
-            --plomo-oscuro: #2F4F4F;
-            --blanco: #FFFFFF;
-            --negro: #000000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--plomo-oscuro);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--azul), var(--plomo));
-            color: var(--blanco);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .logo p {
-            font-size: 0.9rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--verde-claro);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(30, 144, 255, 0.8), rgba(112, 128, 144, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><text x="600" y="300" font-family="Arial" font-size="48" fill="%23ccc" text-anchor="middle">Contabilidad Profesional</text></svg>');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--blanco);
-            margin-top: 80px;
-        }
-
-        .hero-content h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--verde-claro);
-            color: var(--plomo-oscuro);
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            background: var(--blanco);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: var(--blanco);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--azul);
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--verde-claro);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .service-card {
-            background: var(--blanco);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--verde-claro);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--azul);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            color: var(--plomo-oscuro);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .service-card p {
-            color: var(--plomo);
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--verde-claro), var(--blanco));
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            color: var(--azul);
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: var(--plomo-oscuro);
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: var(--plomo);
-            color: var(--blanco);
-        }
-
-        .contact .section-title {
-            color: var(--blanco);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            color: var(--verde-claro);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .contact-info i {
-            color: var(--verde-claro);
-            margin-right: 10px;
-        }
-
-        .contact-form {
-            background: var(--blanco);
-            padding: 30px;
-            border-radius: 15px;
-            color: var(--plomo-oscuro);
-        }
-
-        .contact-form h3 {
-            color: var(--azul);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--plomo);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--azul);
-        }
-
-        .submit-btn {
-            background: var(--azul);
-            color: var(--blanco);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--plomo-oscuro);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: var(--blanco);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        /* Chatbot */
-        .chatbot-container {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 350px;
-            height: 500px;
-            background: var(--blanco);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-        }
-
-        .chatbot-header {
-            background: var(--azul);
-            color: var(--blanco);
-            padding: 15px;
-            border-radius: 15px 15px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chatbot-header h3 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        .chatbot-close {
-            background: none;
-            border: none;
-            color: var(--blanco);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background: #f9f9f9;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .message.user {
-            justify-content: flex-end;
-        }
-
-        .message-content {
-            max-width: 70%;
-            padding: 10px 15px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-        }
-
-        .message.bot .message-content {
-            background: var(--plomo);
-            color: var(--blanco);
-        }
-
-        .message.user .message-content {
-            background: var(--verde-claro);
-            color: var(--plomo-oscuro);
-        }
-
-        .chatbot-input {
-            padding: 15px;
-            border-top: 1px solid var(--plomo);
-            display: flex;
-            gap: 10px;
-        }
-
-        .chatbot-input input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid var(--plomo);
-            border-radius: 20px;
-            outline: none;
-        }
-
-        .chatbot-input button {
-            background: var(--azul);
-            color: var(--blanco);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .chatbot-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: var(--azul);
-            color: var(--blanco);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .chatbot-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--plomo-oscuro);
-            color: var(--blanco);
-            text-align: center;
-            padding: 30px 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .chatbot-container {
-                width: 90%;
-                right: 5%;
-                left: 5%;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONTASOL SAC | Consultoría Contable</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --cafe-oscuro:#3b2f2f;
+  --cafe-dorado:#b08d57;
+  --beige:#f5efe6;
+  --blanco:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',Arial,sans-serif;
+  background:var(--beige);
+  color:var(--cafe-oscuro);
+  line-height:1.6;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:linear-gradient(135deg,var(--cafe-oscuro),var(--cafe-dorado));
+  z-index:1000;
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+nav h1{
+  color:var(--blanco);
+  font-size:1.8rem;
+}
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+nav a{
+  color:var(--blanco);
+  text-decoration:none;
+  font-weight:500;
+}
+nav a:hover{color:var(--beige)}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:linear-gradient(rgba(59,47,47,.85),rgba(59,47,47,.85));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-top:80px;
+}
+.hero h2{
+  font-size:3rem;
+  color:var(--blanco);
+}
+.hero p{
+  color:var(--beige);
+  margin:20px auto;
+  max-width:600px;
+}
+.hero a{
+  display:inline-block;
+  background:var(--cafe-dorado);
+  color:var(--cafe-oscuro);
+  padding:15px 35px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+.hero a:hover{background:var(--beige)}
+
+/* SECCIONES */
+section{padding:90px 0}
+.section-title{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:50px;
+  color:var(--cafe-oscuro);
+}
+.section-title::after{
+  content:"";
+  width:80px;
+  height:4px;
+  background:var(--cafe-dorado);
+  display:block;
+  margin:10px auto 0;
+}
+
+/* SERVICIOS */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.service-card{
+  background:var(--blanco);
+  padding:35px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+.service-card i{
+  font-size:3rem;
+  color:var(--cafe-dorado);
+  margin-bottom:20px;
+}
+
+/* BENEFICIOS */
+.benefits ul{
+  max-width:700px;
+  margin:auto;
+  list-style:none;
+}
+.benefits li{
+  padding:15px;
+  background:var(--blanco);
+  margin-bottom:15px;
+  border-left:5px solid var(--cafe-dorado);
+}
+
+/* TESTIMONIOS */
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.testimonial{
+  background:var(--blanco);
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
+
+/* CONTACTO */
+.contact{
+  background:var(--cafe-oscuro);
+  color:var(--blanco);
+}
+.contact form{
+  max-width:500px;
+  margin:auto;
+}
+.contact input,.contact textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:8px;
+}
+.contact button{
+  width:100%;
+  background:var(--cafe-dorado);
+  border:none;
+  padding:15px;
+  font-weight:bold;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:white;
+  text-decoration:none;
+  z-index:1000;
+}
+
+/* CHATBOT */
+.chat-toggle{
+  position:fixed;
+  bottom:100px;
+  right:25px;
+  background:var(--cafe-dorado);
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  color:var(--cafe-oscuro);
+  cursor:pointer;
+}
+.chat-box{
+  position:fixed;
+  bottom:170px;
+  right:25px;
+  width:320px;
+  height:420px;
+  background:var(--blanco);
+  border-radius:15px;
+  display:none;
+  flex-direction:column;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+.chat-header{
+  background:var(--cafe-oscuro);
+  color:white;
+  padding:12px;
+  border-radius:15px 15px 0 0;
+}
+.chat-messages{flex:1;padding:15px;overflow-y:auto}
+.chat-input{display:flex}
+.chat-input input{flex:1;border:none;padding:10px}
+.chat-input button{border:none;background:var(--cafe-dorado);padding:10px}
+footer{text-align:center;padding:25px;background:#2a1f1f;color:white}
+</style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <img src="https://z-cdn-media.chatglm.cn/files/a6b6fce2-76f1-47b8-b3b3-f66fac687458_Gemini_Generated_Image_1ntp071ntp071ntp.png?auth_key=1790700833-445190d1304e446793687cd8e66f1058-0-cc65c231e308bf925a51b5f0826f9201" alt="Logo Contabilidad">
-                <div>
-                    <h1>CONTABILIDAD</h1>
-                    <p>Cuentas Claras para Todos</p>
-                </div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h2>Servicios Contables para Todos</h2>
-            <p>Ayudamos a personas y pequeñas empresas con sus necesidades contables básicas de manera sencilla y accesible</p>
-            <a href="#servicios" class="cta-button">Conoce Nuestros Servicios</a>
-        </div>
-    </section>
+<header>
+  <div class="container">
+    <nav>
+      <h1>CONTASOL SAC</h1>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Registro de Ventas</h3>
-                    <p>Te ayudamos a organizar y registrar todas tus ventas de manera clara y ordenada para un mejor control financiero.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>Control de Compras</h3>
-                    <p>Lleva un registro detallado de tus compras y gastos para optimizar tu presupuesto y mejorar tu rentabilidad.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Cálculo de Tributos</h3>
-                    <p>Calculamos tus impuestos de manera precisa y te ayudamos a cumplir con tus obligaciones fiscales a tiempo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="inicio" class="hero">
+  <div>
+    <h2>Consultoría Contable & Tributaria</h2>
+    <p>Impulsamos el crecimiento financiero de tu empresa con soluciones claras y profesionales.</p>
+    <a href="https://wa.me/51943706614" target="_blank">Solicitar Asesoría</a>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section id="nosotros" class="about">
-        <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Expertos en Contabilidad Básica</h3>
-                    <p>Somos un equipo de profesionales dedicados a hacer la contabilidad accesible para todos. Entendemos que las finanzas pueden ser complicadas, por eso ofrecemos servicios sencillos y claros.</p>
-                    <p>Nuestra misión es ayudar a personas y pequeñas empresas a tomar el control de sus finanzas con herramientas fáciles de usar y asesoramiento personalizado.</p>
-                    <p>Con años de experiencia en el sector, estamos comprometidos con la transparencia y la excelencia en el servicio.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/500x400/90EE90/1E90FF?text=Contabilidad+Profesional" alt="Nuestro Equipo">
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="servicios">
+  <h2 class="section-title">Servicios</h2>
+  <div class="container services-grid">
+    <div class="service-card"><i class="fa-solid fa-book"></i><h3>Contabilidad</h3></div>
+    <div class="service-card"><i class="fa-solid fa-scale-balanced"></i><h3>Tributación</h3></div>
+    <div class="service-card"><i class="fa-solid fa-user-tie"></i><h3>Consultoría</h3></div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <p><i class="fas fa-phone"></i> Teléfono: 943706614</p>
-                    <p><i class="fas fa-envelope"></i> Email: info@contabilidadclaras.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Dirección: Lima, Perú</p>
-                    <p><i class="fas fa-clock"></i> Horario: Lunes a Viernes 9:00 - 18:00</p>
-                    <p>Estamos aquí para ayudarte con todas tus necesidades contables. No dudes en contactarnos.</p>
-                </div>
-                <div class="contact-form">
-                    <h3>Envíanos un Mensaje</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nombre:</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensaje:</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="beneficios" class="benefits">
+  <h2 class="section-title">Beneficios</h2>
+  <ul>
+    <li>✔ Atención personalizada</li>
+    <li>✔ Cumplimiento SUNAT</li>
+    <li>✔ Información clara y oportuna</li>
+  </ul>
+</section>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/51943706614?text=Hola%20necesito%20ayuda%20con%20servicios%20contables" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<section>
+  <h2 class="section-title">Testimonios</h2>
+  <div class="container testimonials">
+    <div class="testimonial">“Excelente servicio y confianza total.” – Cliente 1</div>
+    <div class="testimonial">“Me ayudaron a ordenar mi empresa.” – Cliente 2</div>
+    <div class="testimonial">“Profesionales y responsables.” – Cliente 3</div>
+  </div>
+</section>
 
-    <!-- Chatbot -->
-    <div class="chatbot-toggle" onclick="toggleChatbot()">
-        <i class="fas fa-comments"></i>
-    </div>
+<section id="contacto" class="contact">
+  <h2 class="section-title">Contáctanos</h2>
+  <form onsubmit="alert('Mensaje enviado');return false;">
+    <input type="text" placeholder="Nombre" required>
+    <input type="email" placeholder="Correo" required>
+    <textarea placeholder="Mensaje"></textarea>
+    <button>Enviar</button>
+  </form>
+</section>
 
-    <div class="chatbot-container" id="chatbotContainer">
-        <div class="chatbot-header">
-            <h3>Asistente Virtual</h3>
-            <button class="chatbot-close" onclick="toggleChatbot()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="message bot">
-                <div class="message-content">
-                    ¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?
-                </div>
-            </div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje..." onkeypress="handleChatbotKeyPress(event)">
-            <button onclick="sendMessage()">Enviar</button>
-        </div>
-    </div>
+<a class="whatsapp" href="https://wa.me/51943706614" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 CONTABILIDAD - Cuentas Claras para Todos. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+<div class="chat-toggle" onclick="toggleChat()">💬</div>
+<div class="chat-box" id="chat">
+  <div class="chat-header">Asistente Virtual</div>
+  <div class="chat-messages" id="msgs">Hola 👋 ¿En qué puedo ayudarte?</div>
+  <div class="chat-input">
+    <input id="msg">
+    <button onclick="send()">Enviar</button>
+  </div>
+</div>
 
-    <script>
-        // Chatbot functionality
-        function toggleChatbot() {
-            const chatbotContainer = document.getElementById('chatbotContainer');
-            chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
-        }
+<footer>
+© 2026 CONTASOL SAC – Perú
+</footer>
 
-        function sendMessage() {
-            const input = document.getElementById('chatbotInput');
-            const message = input.value.trim();
-            
-            if (message) {
-                addMessage(message, 'user');
-                input.value = '';
-                
-                // Simulate bot response
-                setTimeout(() => {
-                    const botResponse = getBotResponse(message);
-                    addMessage(botResponse, 'bot');
-                }, 1000);
-            }
-        }
+<script>
+function toggleChat(){
+  const c=document.getElementById("chat");
+  c.style.display=c.style.display==="flex"?"none":"flex";
+}
+function send(){
+  const m=document.getElementById("msg");
+  const msgs=document.getElementById("msgs");
+  msgs.innerHTML+="<br>👤 "+m.value;
+  setTimeout(()=>msgs.innerHTML+="<br>🤖 Escríbenos al WhatsApp 943706614",500);
+  m.value="";
+}
+</script>
 
-        function addMessage(message, sender) {
-            const messagesContainer = document.getElementById('chatbotMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            messageDiv.innerHTML = `<div class="message-content">${message}</div>`;
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        function getBotResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            if (lowerMessage.includes('venta') || lowerMessage.includes('ventas')) {
-                return "Ofrecemos servicios de registro de ventas para ayudarte a mantener un control financiero ordenado. ¿Te gustaría saber más?";
-            } else if (lowerMessage.includes('compra') || lowerMessage.includes('compras')) {
-                return "Nuestro servicio de control de compras te ayuda a registrar y organizar todos tus gastos. ¿Necesitas ayuda con esto?";
-            } else if (lowerMessage.includes('tributo') || lowerMessage.includes('impuesto') || lowerMessage.includes('impuestos')) {
-                return "Calculamos tus impuestos de manera precisa y te ayudamos a cumplir con tus obligaciones fiscales. ¿Te gustaría una consulta?";
-            } else if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('tarifa')) {
-                return "Nuestros precios son accesibles y se ajustan a tus necesidades. Contáctanos directamente para un presupuesto personalizado.";
-            } else if (lowerMessage.includes('horario') || lowerMessage.includes('atención')) {
-                return "Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00. ¿En qué puedo ayudarte?";
-            } else if (lowerMessage.includes('gracias')) {
-                return "¡De nada! Estamos aquí para ayudarte con tus necesidades contables. ¿Hay algo más en lo que pueda asistirte?";
-            } else if (lowerMessage.includes('hola') || lowerMessage.includes('buenos dias') || lowerMessage.includes('buenas tardes')) {
-                return "¡Hola! Bienvenido a nuestro servicio de contabilidad. ¿En qué puedo ayudarte hoy?";
-            } else {
-                return "Entiendo tu consulta. Para una atención más personalizada, te recomiendo contactarnos directamente por WhatsApp o llamarnos al 943706614. ¿Hay algo específico en lo que pueda ayudarte?";
-            }
-        }
-
-        function handleChatbotKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-
-        // Contact form functionality
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would normally send the form data to a server
-            alert('¡Gracias por tu mensaje, ' + name + '! Te contactaremos pronto.');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(30, 144, 255, 0.95), rgba(112, 128, 144, 0.95))';
-            } else {
-                header.style.background = 'linear-gradient(135deg, var(--azul), var(--plomo))';
-            }
-        });
-    </script>
 </body>
 </html>
