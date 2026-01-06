@@ -1,0 +1,40 @@
+:root {
+    --marron-oscuro: #2c1e1a;
+    --marron-medio: #4a342e;
+    --dorado: #c9a14a;
+    --dorado-brillante: #f1d38e;
+    --naranja-logo: #f37021;
+    --crema: #fdfaf5;
+}
+
+body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--crema); color: var(--marron-oscuro); scroll-behavior: smooth; }
+
+/* Header Premium */
+header {
+    background: var(--marron-medio);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+nav { display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: auto; }
+.logo-img { height: 70px; transition: 0.3s; }
+
+/* Botón de Citas */
+.btn-reserva {
+    background: var(--naranja-logo);
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.btn-reserva:hover {
+    background: var(--dorado);
+    transform: scale(1.05);
+}
