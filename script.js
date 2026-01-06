@@ -1,30 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".faq-question").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const answer = btn.nextElementSibling;
-            const open = answer.style.display === "block";
+function mostrarCalendario() {
+  document.getElementById("calendario").classList.remove("hidden");
+}
 
-            document.querySelectorAll(".faq-answer")
-                .forEach(a => a.style.display = "none");
+function reservarCita() {
+  confetti({
+    particleCount: 180,
+    spread: 80,
+    origin: { y: 0.6 }
+  });
 
-            answer.style.display = open ? "none" : "block";
-        });
-    });
-});
+  setTimeout(() => {
+    window.open("https://wa.me/51943706614", "_blank");
+  }, 1200);
+}
 
-function agendarCita() {
-    if (typeof confetti === "function") {
-        confetti({
-            particleCount: 120,
-            spread: 80,
-            origin: { y: 0.6 }
-        });
-    }
+function chat(tipo) {
+  let mensaje = "";
 
-    setTimeout(() => {
-        window.open(
-            "https://wa.me/51943706614?text=Hola%20deseo%20información%20sobre%20sus%20servicios%20contables",
-            "_blank"
-        );
-    }, 800);
+  if (tipo === "pequeña") mensaje = "Hola, tengo una empresa pequeña y necesito asesoría tributaria";
+  if (tipo === "mediana") mensaje = "Hola, tengo una empresa mediana y busco planificación fiscal";
+  if (tipo === "grande") mensaje = "Hola, represento una empresa grande y necesito auditoría";
+
+  window.open("https://wa.me/51943706614?text=" + encodeURIComponent(mensaje), "_blank");
 }
