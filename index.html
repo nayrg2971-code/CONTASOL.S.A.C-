@@ -1,82 +1,269 @@
-<style>
-.respaldo-seccion {
-    background: white;
-    padding: 60px 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-}
-.respaldo-container {
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
-}
-.logo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-top: 30px;
-    opacity: 0.8;
-}
-.logo-item {
-    width: 140px;
-    filter: grayscale(100%);
-    transition: 0.4s;
-    cursor: pointer;
-}
-.logo-item:hover {
-    filter: grayscale(0%);
-    transform: scale(1.1);
-}
-.logo-entidad {
-    border-right: 2px solid var(--dorado);
-    padding-right: 30px;
-    margin-right: 30px;
-}
-.entidad-label {
-    display: block;
-    font-size: 11px;
-    color: var(--marron-medio);
-    margin-top: 5px;
-    font-weight: bold;
-}
-</style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTASOL SAC | Consultoría Premium Huaraz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
-<section class="respaldo-seccion">
-    <div class="respaldo-container">
-        <h3 style="color: var(--marron-oscuro); font-size: 1.5rem;">Instituciones y Empresas que Confían en Nosotros</h3>
-        <p style="color: var(--dorado); font-weight: 600; letter-spacing: 1px;">RESPALDO PROFESIONAL & TRIBUTARIO</p>
-        
-        <div class="logo-grid">
-            <div class="logo-entidad">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sunat_logo.svg/1200px-Sunat_logo.svg.png" alt="SUNAT" class="logo-item" style="width: 120px;">
-                <span class="entidad-label">ENTIDAD FISCALIZADORA</span>
-            </div>
-            
-            <div class="logo-entidad">
-                <img src="https://jdccpp.org.pe/images/logo_colegio.png" alt="Colegio de Contadores" class="logo-item" style="width: 80px;">
-                <span class="entidad-label">CONTADORES COLEGIADOS</span>
-            </div>
+    <style>
+        :root {
+            --marron-oscuro: #2c1e1a;
+            --marron-medio: #4a342e;
+            --dorado: #c9a14a;
+            --dorado-brillante: #f1d38e;
+            --naranja-logo: #f37021;
+            --blanco: #ffffff;
+            --crema: #fdfaf5;
+        }
 
-            <img src="https://logodownload.org/wp-content/uploads/2014/10/bcp-logo-0.png" alt="BCP" class="logo-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BBVA_2019.svg/1200px-BBVA_2019.svg.png" alt="BBVA" class="logo-item">
-            <img src="https://seeklogo.com/images/M/movistar-logo-79A46C9E32-seeklogo.com.png" alt="Movistar" class="logo-item" style="width: 100px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_Interbank.png/1200px-Logo_Interbank.png" alt="Interbank" class="logo-item">
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--crema); color: var(--marron-oscuro); scroll-behavior: smooth; }
+
+        /* HEADER & TOP BAR */
+        .top-bar { background: var(--marron-oscuro); color: var(--dorado-brillante); padding: 10px 20px; display: flex; justify-content: space-between; font-size: 13px; border-bottom: 2px solid var(--dorado); }
+        header { background: var(--marron-medio); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        nav { display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: auto; }
+        .logo-img { height: 65px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); }
+        nav a { color: var(--blanco); text-decoration: none; font-weight: 500; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: var(--dorado); }
+
+        /* HERO */
+        .hero { background: linear-gradient(rgba(44, 30, 26, 0.8), rgba(44, 30, 26, 0.8)), url('https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1350&q=80'); background-size: cover; color: var(--blanco); text-align: center; padding: 100px 20px; border-bottom: 5px solid var(--dorado); }
+        .hero h1 span { color: var(--dorado); }
+
+        /* SECCIONES */
+        section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+        .card-premium { background: white; padding: 30px; border-radius: 10px; border-bottom: 4px solid var(--dorado); transition: 0.3s; text-align: center; }
+        .card-premium:hover { transform: translateY(-5px); }
+
+        /* RESPALDO */
+        .logo-flex { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 40px; margin-top: 30px; }
+        .logo-img-fix { height: 60px; filter: grayscale(100%); transition: 0.3s; }
+        .logo-img-fix:hover { filter: grayscale(0%); transform: scale(1.1); }
+
+        /* CITAS CALENDARIO */
+        .citas-container { max-width: 900px; margin: 30px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .days-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 15px; }
+        .day { padding: 10px; border: 1px solid #eee; border-radius: 5px; cursor: pointer; text-align: center; font-size: 13px; }
+        .day:hover, .day.selected { background: var(--naranja-logo); color: white; }
+        .time-slots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .time-btn { padding: 10px; border: 1px solid var(--marron-medio); border-radius: 5px; cursor: pointer; background: none; }
+
+        /* MAPA */
+        .map-container { width: 100%; height: 350px; border-radius: 15px; overflow: hidden; border: 4px solid var(--marron-oscuro); }
+
+        /* CHATBOT FORM */
+        #chatbot { position: fixed; bottom: 100px; right: 25px; width: 320px; background: white; border-radius: 15px; display: none; z-index: 2000; box-shadow: 0 10px 40px rgba(0,0,0,0.4); overflow: hidden; }
+        .chat-form-container { padding: 15px; background: #f0f2f5; }
+        .chat-form-container input, .chat-form-container select { width: 100%; padding: 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .btn-wa-chat { background: #075e54; color: white; border: none; width: 100%; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; }
+
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; cursor: pointer; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        /* MODAL PRIVACIDAD */
+        .modal { display: none; position: fixed; z-index: 4000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .modal-content { background: white; margin: 10% auto; padding: 30px; width: 80%; max-width: 500px; border-radius: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div><i class="fas fa-map-marker-alt"></i> Jr. Agusto B. Legia 798, Huaraz, Ancash</div>
+    <div><i class="fas fa-phone"></i> +51 943 706 614</div>
+</div>
+
+<header>
+    <nav>
+        <a href="#servicios">SERVICIOS</a>
+        <a href="#aliados">CONFIANZA</a>
+        <img src="https://i.ibb.co/Vp8nS77/image-1-1767677114920.jpg" alt="Logo" class="logo-img">
+        <a href="#citas">AGENDAR CITA</a>
+        <a href="#nosotros">CONTACTO</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Asesoría Contable <span>Estratégica en Huaraz</span></h1>
+    <p>Impulsamos la rentabilidad de su empresa con respaldo profesional y tecnología.</p>
+</div>
+
+<section id="servicios">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
+        <div class="card-premium">
+            <i class="fas fa-balance-scale" style="font-size: 40px; color: var(--dorado);"></i>
+            <h3>Gestión Tributaria</h3>
+            <p>Planeamiento legal ante SUNAT para optimizar sus impuestos y evitar multas innecesarias.</p>
+        </div>
+        <div class="card-premium">
+            <i class="fas fa-chart-pie" style="font-size: 40px; color: var(--dorado);"></i>
+            <h3>Outsourcing Contable</h3>
+            <p>Control total de sus libros y estados financieros con reportes mensuales de gestión.</p>
+        </div>
+        <div class="card-premium">
+            <i class="fas fa-users" style="font-size: 40px; color: var(--dorado);"></i>
+            <h3>Recursos Humanos</h3>
+            <p>Administración de planillas, PLAME y beneficios sociales con estricto cumplimiento legal.</p>
         </div>
     </div>
 </section>
 
+<section id="aliados" style="background: white; border-radius: 20px;">
+    <div style="text-align:center;">
+        <h2 style="color: var(--marron-oscuro);">Instituciones que Respaldan nuestra Labor</h2>
+        <div class="logo-flex">
+            <div style="border-right: 1px solid #ddd; padding-right: 20px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sunat_logo.svg/1200px-Sunat_logo.svg.png" class="logo-img-fix" alt="SUNAT">
+                <span class="entidad-label">ENTIDAD FISCALIZADORA</span>
+            </div>
+            <div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEis_5_A0uR_K9v6iG9u5o_Cj3z_N4S1o0/s1600/logo-ccp.png" class="logo-img-fix" alt="CCP">
+                <span class="entidad-label">COLEGIO DE CONTADORES</span>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BBVA_2019.svg/1200px-BBVA_2019.svg.png" class="logo-img-fix" alt="BBVA">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Interbank_logo.svg/1200px-Interbank_logo.svg.png" class="logo-img-fix" alt="Interbank">
+        </div>
+    </div>
+</section>
+
+<section id="citas" style="background: var(--marron-oscuro); color: white; border-radius: 20px;">
+    <h2 style="text-align:center; color: var(--dorado-brillante);">📅 Reserva tu Consultoría Gratuita</h2>
+    <div class="citas-container">
+        <div style="color: #333;">
+            <strong>Selecciona un día (Enero 2026):</strong>
+            <div class="days-grid" id="calendario">
+                </div>
+        </div>
+        <div style="color: #333; border-left: 1px solid #eee; padding-left: 20px;">
+            <strong>Horas Disponibles:</strong>
+            <div class="time-slots">
+                <button class="time-btn" onclick="setOpt(this, '09:00 AM')">09:00 AM</button>
+                <button class="time-btn" onclick="setOpt(this, '11:00 AM')">11:00 AM</button>
+                <button class="time-btn" onclick="setOpt(this, '03:00 PM')">03:00 PM</button>
+                <button class="time-btn" onclick="setOpt(this, '05:00 PM')">05:00 PM</button>
+            </div>
+            <p id="info-cita" style="margin-top:20px; font-weight:bold; color: var(--naranja-logo);">📍 Seleccione fecha y hora</p>
+            <button onclick="agendarWA()" id="btn-res" style="width:100%; padding:15px; background:var(--naranja-logo); color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer; opacity:0.5;" disabled>RESERVAR POR WHATSAPP 🎊</button>
+        </div>
+    </div>
+</section>
+
+<section id="nosotros">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:50px; align-items:center;">
+        <div>
+            <h2>Visítenos en Huaraz</h2>
+            <p><b>Dirección:</b> Jr. Agusto B. Legia 798, Huaraz.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.331575454641!2d-77.528437!3d-9.529851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a90d0fc2859e95%3A0x6b89695668e2f895!2sJr.%20Augusto%20B.%20Legu%C3%ADa%2C%20Huaraz!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <img src="https://i.ibb.co/Vp8nS77/image-1-1767677114920.jpg" style="width:200px;">
+            <div style="background:var(--marron-medio); color:white; padding:30px; border-radius:15px; margin-top:20px;">
+                <p><i class="fab fa-whatsapp"></i> +51 943 706 614</p>
+                <p><i class="fas fa-envelope"></i> nayrg2971@gmail.com</p>
+                <p><b>Pagos:</b> BCP, BBVA, YAPE, PLIN</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="chatbot">
+    <div style="background:#075e54; color:white; padding:15px; font-weight:bold; display:flex; align-items:center; gap:10px;">
+        <i class="fas fa-user-circle" style="font-size:24px;"></i> <span>Asistente Contasol</span>
+    </div>
+    <div class="chat-form-container">
+        <p style="font-size:12px; margin-top:0;">Complete los datos para iniciar:</p>
+        <input type="text" id="f-nom" placeholder="Nombre completo">
+        <input type="tel" id="f-tel" placeholder="Teléfono">
+        <select id="f-ser">
+            <option value="">Servicio de Interés:</option>
+            <option value="Contabilidad">Contabilidad</option>
+            <option value="Auditoria">Auditoría</option>
+            <option value="Impuestos">Impuestos</option>
+        </select>
+        <select id="f-fac">
+            <option value="">Facturación Anual:</option>
+            <option value="Mype">Mype</option>
+            <option value="Mediana">Mediana</option>
+            <option value="Grande">Grande</option>
+        </select>
+        <label style="font-size:10px;"><input type="checkbox" checked> Acepto <a href="#" onclick="abrirP()">políticas de privacidad</a></label>
+        <button class="btn-wa-chat" style="margin-top:10px;" onclick="enviarChat()">Iniciar Whatsapp <i class="fab fa-whatsapp"></i></button>
+    </div>
+</div>
+
+<div class="whatsapp-float" onclick="toggleChat()"><i class="fab fa-whatsapp"></i></div>
+
+<div id="modalP" class="modal">
+    <div class="modal-content">
+        <h3>Políticas de Privacidad</h3>
+        <p>Sus datos están protegidos bajo la Ley N° 29733 (Perú). Solo se usarán para fines de asesoría contable por parte de CONTASOL SAC.</p>
+        <button onclick="document.getElementById('modalP').style.display='none'" style="width:100%; padding:10px; background:var(--marron-medio); color:white; border:none; border-radius:5px;">Cerrar</button>
+    </div>
+</div>
+
+<footer style="background:var(--marron-oscuro); color:var(--dorado-brillante); text-align:center; padding:30px;">
+    <p>© 2026 CONTASOL SAC - Huaraz. Excelencia y Confianza.</p>
+</footer>
+
 <script>
-// Pequeño efecto para que los logos aparezcan suavemente al bajar
-window.addEventListener('scroll', function() {
-    let logos = document.querySelector('.logo-grid');
-    let position = logos.getBoundingClientRect().top;
-    let screen = window.innerHeight / 1.2;
-    
-    if(position < screen) {
-        logos.style.opacity = "1";
-        logos.style.transition = "opacity 1.5s ease-in";
+    let dSel = "12 de Enero";
+    let hSel = "";
+
+    // Generar días del calendario
+    const cal = document.getElementById('calendario');
+    for(let i=1; i<=28; i++){
+        let d = document.createElement('div');
+        d.className = 'day' + (i===12 ? ' selected' : '');
+        d.innerText = i;
+        d.onclick = function(){
+            document.querySelectorAll('.day').forEach(x=>x.classList.remove('selected'));
+            this.classList.add('selected');
+            dSel = this.innerText + " de Enero";
+            updRes();
+        };
+        cal.appendChild(d);
     }
-});
+
+    function setOpt(btn, h){
+        document.querySelectorAll('.time-btn').forEach(x=>x.style.background="none");
+        btn.style.background = "var(--naranja-logo)";
+        btn.style.color = "white";
+        hSel = h;
+        updRes();
+        document.getElementById('btn-res').disabled = false;
+        document.getElementById('btn-res').style.opacity = "1";
+    }
+
+    function updRes(){
+        document.getElementById('info-cita').innerText = `📍 Cita: ${dSel} a las ${hSel || '...'}`;
+    }
+
+    function agendarWA(){
+        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#f37021', '#c9a14a'] });
+        setTimeout(()=>{
+            const msg = encodeURIComponent(`Hola CONTASOL SAC, agendé una cita:\n📅 Fecha: ${dSel}\n⏰ Hora: ${hSel}`);
+            window.open(`https://wa.me/51943706614?text=${msg}`, '_blank');
+        }, 1000);
+    }
+
+    function toggleChat(){
+        const c = document.getElementById('chatbot');
+        c.style.display = (c.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function enviarChat(){
+        const n = document.getElementById('f-nom').value;
+        const s = document.getElementById('f-ser').value;
+        if(!n || !s) return alert("Complete los datos");
+        const msg = encodeURIComponent(`Hola, soy ${n}. Me interesa el servicio de ${s}. Vengo de la web.`);
+        window.open(`https://wa.me/51943706614?text=${msg}`, '_blank');
+    }
+
+    function abrirP(){ document.getElementById('modalP').style.display='block'; }
 </script>
+
+</body>
+</html>
