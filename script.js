@@ -1,27 +1,30 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const faqButtons = document.querySelectorAll('.faq-question');
-    
-    faqButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const answer = button.nextElementSibling;
-            const isVisible = answer.style.display === 'block';
-            
-            // Cerrar todas las demás respuestas
-            document.querySelectorAll('.faq-answer').forEach(el => el.style.display = 'none');
-            
-            // Abrir o cerrar la actual
-            answer.style.display = isVisible ? 'none' : 'block';
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".faq-question").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const answer = btn.nextElementSibling;
+            const open = answer.style.display === "block";
+
+            document.querySelectorAll(".faq-answer")
+                .forEach(a => a.style.display = "none");
+
+            answer.style.display = open ? "none" : "block";
         });
     });
 });
 
 function agendarCita() {
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 }
-    });
+    if (typeof confetti === "function") {
+        confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 }
+        });
+    }
+
     setTimeout(() => {
-        window.open("https://wa.me/51943706614", "_blank");
-    }, 1000);
+        window.open(
+            "https://wa.me/51943706614?text=Hola%20deseo%20información%20sobre%20sus%20servicios%20contables",
+            "_blank"
+        );
+    }, 800);
 }
