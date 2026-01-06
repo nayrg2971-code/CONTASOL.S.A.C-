@@ -2,23 +2,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>CONTASOL SAC | Huaraz</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>CONTASOL SAC | Gestión Contable en Huaraz</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="#servicios">Servicios</a>
-            <img src="img/logo.jpg" alt="Contasol Logo" class="logo-img">
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <img src="img/logo.jpg" alt="Contasol Logo" height="60">
+        <a href="#servicios">Servicios</a>
+        <a href="#aliados">Respaldo</a>
+        <a href="#citas" style="background:var(--marron-oscuro); color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">AGENDAR CITA</a>
+    </nav>
+</header>
 
-    <button onclick="confirmarCita()" class="btn-reserva">RESERVAR CITA 🎊</button>
+<section id="servicios">
+    <h2>Nuestros Servicios Especializados</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">
+        <div class="servicio-card">
+            <i class="fas fa-book-open" style="font-size:30px; color:var(--dorado);"></i>
+            <h3>Gestión Contable</h3>
+            <p>Procesamiento de información financiera bajo normas locales e internacionales.</p>
+        </div>
+        </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script src="script.js"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script> </body>
 </html>
