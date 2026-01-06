@@ -1,14 +1,15 @@
 function agendarCita() {
-    // Lanzar efecto de éxito
+    // Efecto de celebración
     confetti({
-        particleCount: 100,
+        particleCount: 150,
         spread: 70,
-        origin: { y: 0.6 }
+        origin: { y: 0.6 },
+        colors: ['#f37021', '#c9a14a', '#ffffff']
     });
 
-    // Abrir WhatsApp después de un segundo
+    // Redirección a WhatsApp después de un breve momento
     setTimeout(() => {
-        const url = "https://wa.me/51943706614?text=Hola CONTASOL, vi su web y quiero agendar una asesoría.";
-        window.open(url, '_blank');
-    }, 1000);
+        const mensaje = encodeURIComponent("Hola CONTASOL SAC, deseo solicitar una consultoría contable desde su sitio web.");
+        window.open(`https://wa.me/51943706614?text=${mensaje}`, '_blank');
+    }, 1200);
 }
