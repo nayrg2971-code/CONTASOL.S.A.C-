@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONTASOL SAC | Asesoría Contable en Huaraz</title>
+    <title>CONTASOL SAC | Asesoría Contable Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,9 +12,9 @@
 
 <header>
     <nav>
-        <a href="#servicios">Servicios</a>
+        <a href="#aliados">Instituciones</a>
         <img src="img/logo.jpg" alt="Contasol Logo" class="logo-nav">
-        <a href="#contacto">Contacto</a>
+        <a href="#faq">Preguntas</a>
     </nav>
 </header>
 
@@ -24,21 +24,58 @@
     <button onclick="agendarCita()" class="btn-principal">AGENDAR CONSULTORÍA 🎊</button>
 </section>
 
-<section id="aliados">
-    <h3>Instituciones que Respaldan nuestra Labor</h3>
-    <div class="logo-grid">
-        <div class="aliado-item">
+<section id="aliados" class="seccion-instituciones">
+    <h2>Instituciones que Respaldan nuestra Labor</h2>
+    <div class="contenedor-logos">
+        <div class="logo-item">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sunat_logo.svg/1200px-Sunat_logo.svg.png" alt="SUNAT">
-            <small>ENTIDAD FISCALIZADORA</small>
+            <p>SUNAT</p>
         </div>
-        <div class="aliado-item">
+        <div class="logo-item">
             <img src="https://jdccpp.org.pe/images/logo_colegio.png" alt="Colegio de Contadores">
-            <small>CONTADORES COLEGIADOS</small>
+            <p>CONTADORES</p>
         </div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BBVA_2019.svg/1200px-BBVA_2019.svg.png" class="banco-logo" alt="BBVA">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Interbank_logo.svg/1200px-Interbank_logo.svg.png" class="banco-logo" alt="Interbank">
     </div>
 </section>
+
+<section id="faq" class="seccion-faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">¿Qué servicios ofrece CONTASOL SAC? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Gestión contable, asesoría tributaria y outsourcing financiero en Huaraz.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿Cómo agendo una cita? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Haga clic en el botón naranja y será redirigido a nuestro WhatsApp oficial.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <img src="img/logo.jpg" alt="Logo" class="logo-footer">
+            <p>Expertos en soluciones contables con ética.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Legales</h4>
+            <ul>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contacto</h4>
+            <p><i class="fas fa-phone"></i> +51 943 706 614</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 CONTASOL S.A.C. - Huaraz, Perú</p>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script src="script.js"></script>
