@@ -2,286 +2,71 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONTASOL SAC | Consultoría Contable Premium</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Contasol SAC | Asesoría Contable</title>
+<link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<style>
-:root{
---azul:#0b2c4d;
---azul-claro:#123f6d;
---dorado:#c9a24d;
---blanco:#ffffff;
---gris:#f2f2f2;
---texto:#1e1e1e;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#fff;color:var(--texto)}
-
-header{
-background:linear-gradient(135deg,var(--azul),var(--azul-claro));
-padding:20px;
-color:#fff;
-position:fixed;
-width:100%;
-z-index:1000;
-}
-
-nav{
-max-width:1200px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-nav h1{color:var(--dorado)}
-
-nav a{
-color:#fff;
-margin-left:20px;
-text-decoration:none;
-font-weight:500;
-}
-
-.hero{
-height:100vh;
-background:linear-gradient(rgba(11,44,77,.85),rgba(11,44,77,.85)),
-url("https://images.unsplash.com/photo-1554224155-8d04cb21cd6c");
-background-size:cover;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:#fff;
-padding-top:80px;
-}
-
-.hero h2{font-size:3rem;color:var(--dorado)}
-.hero p{max-width:600px;margin:20px auto;font-size:1.2rem}
-
-.btn{
-background:var(--dorado);
-color:#000;
-padding:15px 35px;
-border:none;
-border-radius:30px;
-font-size:1.1rem;
-cursor:pointer;
-transition:.3s;
-}
-.btn:hover{transform:scale(1.05)}
-
-section{padding:80px 20px}
-.container{max-width:1200px;margin:auto}
-
-h3.section-title{
-text-align:center;
-color:var(--azul);
-font-size:2.5rem;
-margin-bottom:50px;
-}
-
-/* EMPRESAS */
-.logos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:30px;
-align-items:center;
-filter:grayscale(100%);
-}
-.logos img{width:100%;transition:.3s}
-.logos img:hover{filter:grayscale(0);transform:scale(1.05)}
-
-/* TESTIMONIOS */
-.testimonios{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-.testimonio{
-background:var(--gris);
-padding:25px;
-border-radius:25px;
-position:relative;
-}
-.testimonio img{
-width:60px;
-height:60px;
-border-radius:50%;
-margin-bottom:10px;
-}
-
-/* CALENDARIO */
-.calendario{
-background:var(--gris);
-padding:30px;
-border-radius:20px;
-max-width:500px;
-margin:auto;
-}
-.calendario input,.calendario select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-}
-
-/* CHAT */
-.chat-toggle{
-position:fixed;
-bottom:90px;
-right:30px;
-background:var(--azul);
-color:#fff;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:1.8rem;
-cursor:pointer;
-}
-
-.chat{
-display:none;
-position:fixed;
-bottom:160px;
-right:30px;
-width:320px;
-background:#fff;
-border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,.3);
-overflow:hidden;
-}
-.chat header{
-background:var(--azul);
-color:#fff;
-padding:15px;
-}
-.chat .body{padding:15px}
-.chat button{
-width:100%;
-margin:5px 0;
-padding:10px;
-border:none;
-border-radius:20px;
-background:var(--dorado);
-cursor:pointer;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:30px;
-background:#25D366;
-color:#fff;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:2rem;
-}
-</style>
 </head>
 
 <body>
 
 <header>
-<nav>
-<h1>CONTASOL SAC</h1>
-<div>
-<a href="#citas">Citas</a>
-<a href="#empresas">Empresas</a>
-<a href="#testimonios">Testimonios</a>
-</div>
-</nav>
+  <h1>Contasol SAC</h1>
+  <p>Asesoría contable, tributaria y financiera</p>
 </header>
 
 <section class="hero">
-<div>
-<h2>Consultoría Contable Premium</h2>
-<p>Asesoría tributaria, auditoría y outsourcing con respaldo profesional.</p>
-<button class="btn" onclick="document.getElementById('citas').scrollIntoView()">Reservar cita</button>
-</div>
+  <h2>Confianza, cumplimiento y crecimiento empresarial</h2>
+  <button onclick="mostrarCalendario()">Reservar cita</button>
 </section>
 
-<section id="citas">
-<h3 class="section-title">Reserva tu cita</h3>
-<div class="calendario">
-<input type="date" id="fecha">
-<input type="time" id="hora">
-<select id="tipo">
-<option>Virtual</option>
-<option>Presencial</option>
-</select>
-<button class="btn" onclick="reservar()">Reservar cita</button>
-</div>
+<section id="calendario" class="hidden">
+  <h3>Agenda tu cita</h3>
+  <input type="date">
+  <input type="time">
+  <button onclick="reservarCita()">Confirmar cita</button>
 </section>
 
-<section id="empresas">
-<h3 class="section-title">Empresas que confían en nosotros</h3>
-<div class="container logos">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Logo_BCP.svg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/BBVA_2019.svg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Alicorp_logo.svg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Backus_logo.svg">
-</div>
+<section class="testimonios">
+  <h2>Clientes satisfechos</h2>
+
+  <div class="bubble">
+    <img src="img/cliente1.jpg">
+    <p>Excelente asesoría tributaria</p>
+  </div>
+
+  <div class="bubble">
+    <img src="img/cliente2.jpg">
+    <p>Nos ayudaron con SUNAT y auditoría</p>
+  </div>
+
+  <div class="bubble">
+    <img src="img/cliente3.jpg">
+    <p>Muy profesionales y confiables</p>
+  </div>
 </section>
 
-<section id="testimonios">
-<h3 class="section-title">Testimonios</h3>
-<div class="container testimonios">
-<div class="testimonio">
-<img src="https://randomuser.me/api/portraits/women/44.jpg">
-<p>“Ordenamos nuestra contabilidad y evitamos multas con SUNAT.”</p>
-</div>
-<div class="testimonio">
-<img src="https://randomuser.me/api/portraits/men/32.jpg">
-<p>“Excelente asesoría tributaria y atención personalizada.”</p>
-</div>
-<div class="testimonio">
-<img src="https://randomuser.me/api/portraits/women/68.jpg">
-<p>“Confiables y profesionales, los recomendamos.”</p>
-</div>
-</div>
+<section class="chat">
+  <h2>Asesoría rápida</h2>
+  <p>Selecciona tu tipo de empresa:</p>
+  <button onclick="chat('pequeña')">Empresa pequeña</button>
+  <button onclick="chat('mediana')">Empresa mediana</button>
+  <button onclick="chat('grande')">Empresa grande</button>
 </section>
 
-<a class="whatsapp" href="https://wa.me/51943706614" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
+<section class="alianzas">
+  <h2>Trabajamos con</h2>
+  <div class="logos">
+    <img src="img/sunat.png">
+    <img src="img/ccp.png">
+    <img src="img/bcp.png">
+    <img src="img/interbank.png">
+  </div>
+</section>
 
-<div class="chat-toggle" onclick="toggleChat()">💬</div>
-<div class="chat" id="chat">
-<header>Asistente Contasol</header>
-<div class="body">
-<p>Selecciona tu empresa:</p>
-<button>Pequeña</button>
-<button>Mediana</button>
-<button>Grande</button>
-</div>
-</div>
+<footer>
+  <p>© 2025 Contasol SAC – Registrado y validado en SUNAT</p>
+</footer>
 
-<script>
-function reservar(){
-confetti({particleCount:180,spread:80,origin:{y:.6}});
-setTimeout(()=>{
-window.open("https://wa.me/51943706614?text=Cita%20reservada","_blank");
-},1000);
-}
-function toggleChat(){
-const c=document.getElementById("chat");
-c.style.display=c.style.display==="block"?"none":"block";
-}
-</script>
-
+<script src="js/script.js"></script>
 </body>
 </html>
