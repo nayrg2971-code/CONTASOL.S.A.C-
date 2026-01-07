@@ -1,83 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>ERP Empresarial</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>CONTASOL S.A.C</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5efe6;
+}
+
+header {
+  background: linear-gradient(to right, #6f4e37, #c9a24d);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+  margin-right: 15px;
+}
+
+section {
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+button {
+  background: #c9a24d;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
-<header class="header">
-    <div class="logo">
-        <img src="logo.jpg" alt="Logo ERP">
-    </div>
-    <h1>ERP Empresarial</h1>
-    <p>Gestión integral y automatizada</p>
+<header>
+  <img src="logo/logo.jpg" class="logo" alt="Logo">
+  <div>
+    <h1>CONTASOL S.A.C</h1>
+    <p>Servicios contables y ERP</p>
+  </div>
 </header>
 
-<nav class="menu">
-    <button onclick="mostrar('erp')">¿Qué es un ERP?</button>
-    <button onclick="mostrar('modulos')">Módulos</button>
-    <button onclick="mostrar('beneficios')">Beneficios</button>
-    <button onclick="mostrar('empresas')">Empresas en Perú</button>
-</nav>
+<section>
+  <div class="card">
+    <h2>📅 Reserva tu cita</h2>
+    <input type="date" id="fecha"><br><br>
+    <select id="hora">
+      <option value="">Selecciona hora</option>
+      <option>08:00</option>
+      <option>11:00</option>
+      <option>15:00</option>
+      <option>17:00</option>
+    </select><br><br>
+    <button onclick="reservar()">Reservar</button>
+  </div>
 
-<main class="contenido">
+  <div class="card">
+    <h2>⭐ Reseñas</h2>
+    <p>⭐⭐⭐⭐⭐ Excelente servicio</p>
+    <p>⭐⭐⭐⭐ Muy confiables</p>
+  </div>
+</section>
 
-    <section id="erp" class="seccion">
-        <h2>¿Qué es un ERP?</h2>
-        <p>
-            Un ERP (Enterprise Resource Planning) es un sistema de planificación
-            de recursos empresariales que integra todas las áreas de una empresa
-            en una sola plataforma: contabilidad, ventas, compras, inventarios,
-            recursos humanos y más.
-        </p>
-    </section>
+<script>
+function reservar() {
+  confetti();
+  alert("Cita reservada correctamente");
+}
+</script>
 
-    <section id="modulos" class="seccion oculto">
-        <h2>Módulos de un ERP</h2>
-        <ul>
-            <li>Contabilidad y Finanzas</li>
-            <li>Ventas y Facturación electrónica</li>
-            <li>Compras y Proveedores</li>
-            <li>Inventarios y Almacenes</li>
-            <li>Recursos Humanos y Planillas</li>
-            <li>Reportes y Análisis</li>
-        </ul>
-    </section>
-
-    <section id="beneficios" class="seccion oculto">
-        <h2>Beneficios del ERP</h2>
-        <ul>
-            <li>Automatización de procesos</li>
-            <li>Reducción de errores</li>
-            <li>Información en tiempo real</li>
-            <li>Cumplimiento SUNAT</li>
-            <li>Mejor toma de decisiones</li>
-        </ul>
-    </section>
-
-    <section id="empresas" class="seccion oculto">
-        <h2>ERPs usados en Perú</h2>
-        <ul>
-            <li>Odoo</li>
-            <li>SAP Business One</li>
-            <li>Softland ERP</li>
-            <li>Contasis ERP</li>
-            <li>Defontana</li>
-        </ul>
-        <p>
-            Todos son compatibles con normativa SUNAT y usados por contadores
-            colegiados en el Perú.
-        </p>
-    </section>
-
-</main>
-
-<footer class="footer">
-    <p>ERP Académico y Empresarial - Contabilidad</p>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
