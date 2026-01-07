@@ -1,95 +1,54 @@
+:root {
+    --marron: #2c1e1a;
+    --dorado: #c9a14a;
+    --naranja: #f37021;
+}
+
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f4f6f9;
-  color: #2c2c2c;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #fdfaf5;
+    overflow-y: auto !important;
 }
 
 header {
-  background: linear-gradient(135deg, #7b1e3a, #b83250);
-  color: white;
-  padding: 30px;
-  text-align: center;
+    background: white;
+    padding: 15px;
+    border-bottom: 2px solid var(--dorado);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-nav { height: 50px; }
 
 .hero {
-  padding: 50px;
-  text-align: center;
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--marron);
+    color: white;
 }
 
-.hero button {
-  background: #7b1e3a;
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
+.btn-principal {
+    background: var(--naranja);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.hidden {
-  display: none;
-}
+.seccion-faq { padding: 60px 20px; max-width: 800px; margin: auto; }
+.faq-item { border-bottom: 1px solid #ddd; }
+.faq-question { width: 100%; padding: 20px; text-align: left; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; font-weight: bold; }
+.faq-answer { padding: 0 20px 20px; display: none; }
 
-#calendario {
-  background: white;
-  padding: 30px;
-  margin: 30px auto;
-  width: 300px;
-  border-radius: 15px;
-  text-align: center;
-}
-
-.testimonios {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px;
-}
-
-.bubble {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.bubble img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-}
-
-.chat {
-  background: #7b1e3a;
-  color: white;
-  padding: 40px;
-  text-align: center;
-}
-
-.chat button {
-  margin: 10px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.alianzas {
-  text-align: center;
-  padding: 40px;
-}
-
-.logos img {
-  width: 80px;
-  margin: 15px;
-}
-
-footer {
-  background: #2c2c2c;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
+footer { background: var(--marron); color: white; padding: 40px 20px; margin-top: 50px; }
+.logo-footer { height: 50px; filter: brightness(0) invert(1); }
