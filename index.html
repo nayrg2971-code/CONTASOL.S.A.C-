@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Contasol SAC | Asesoría Contable</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTASOL S.A.C. | Asesoría Contable</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
-  <h1>Contasol SAC</h1>
-  <p>Asesoría contable, tributaria y financiera</p>
+    <nav>
+        <a href="#aliados">Instituciones</a>
+        <img src="img/logo.jpg" alt="Contasol Logo" class="logo-nav">
+        <a href="#faq">Preguntas</a>
+    </nav>
 </header>
 
 <section class="hero">
-  <h2>Confianza, cumplimiento y crecimiento empresarial</h2>
-  <button onclick="mostrarCalendario()">Reservar cita</button>
+    <h1>Excelencia Contable y Tributaria</h1>
+    <p>Impulsamos el crecimiento de su empresa con estrategias financieras sólidas.</p>
+    <button onclick="agendarCita()" class="btn-principal">AGENDAR CONSULTORÍA 🎊</button>
 </section>
 
-<section id="calendario" class="hidden">
-  <h3>Agenda tu cita</h3>
-  <input type="date">
-  <input type="time">
-  <button onclick="reservarCita()">Confirmar cita</button>
+<section id="aliados" style="padding: 60px 20px; text-align: center; background: #fff;">
+    <h2>Instituciones que Respaldan nuestra Labor</h2>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sunat_logo.svg/1200px-Sunat_logo.svg.png" height="50">
+        <img src="https://jdccpp.org.pe/images/logo_colegio.png" height="50">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BBVA_2019.svg/1200px-BBVA_2019.svg.png" height="40">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Logo_BCP.svg/1200px-Logo_BCP.svg.png" height="50">
+    </div>
 </section>
 
-<section class="testimonios">
-  <h2>Clientes satisfechos</h2>
-
-  <div class="bubble">
-    <img src="img/cliente1.jpg">
-    <p>Excelente asesoría tributaria</p>
-  </div>
-
-  <div class="bubble">
-    <img src="img/cliente2.jpg">
-    <p>Nos ayudaron con SUNAT y auditoría</p>
-  </div>
-
-  <div class="bubble">
-    <img src="img/cliente3.jpg">
-    <p>Muy profesionales y confiables</p>
-  </div>
-</section>
-
-<section class="chat">
-  <h2>Asesoría rápida</h2>
-  <p>Selecciona tu tipo de empresa:</p>
-  <button onclick="chat('pequeña')">Empresa pequeña</button>
-  <button onclick="chat('mediana')">Empresa mediana</button>
-  <button onclick="chat('grande')">Empresa grande</button>
-</section>
-
-<section class="alianzas">
-  <h2>Trabajamos con</h2>
-  <div class="logos">
-    <img src="img/sunat.png">
-    <img src="img/ccp.png">
-    <img src="img/bcp.png">
-    <img src="img/interbank.png">
-  </div>
+<section id="faq" class="seccion-faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">¿Qué servicios ofrece CONTASOL SAC? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Asesoría contable, tributaria y financiera integral.</p></div>
+        </div>
+    </div>
 </section>
 
 <footer>
-  <p>© 2025 Contasol SAC – Registrado y validado en SUNAT</p>
+    <div class="footer-content">
+        <div class="footer-section">
+            <img src="img/logo.jpg" alt="Logo" class="logo-footer">
+            <p>Ética y profesionalismo contable en Huaraz.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contacto</h4>
+            <p><i class="fas fa-phone"></i> +51 943 706 614</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 CONTASOL S.A.C. - Todos los derechos reservados.</p>
+    </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
