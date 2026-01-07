@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONTASOL S.A.C</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+:root{
+--cafe:#6F4E37;
+--cafe-oscuro:#4B2E1E;
+--dorado:#C9A24D;
+--plomo:#8B8B8B;
+--blanco:#FFFFFF;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;color:var(--cafe-oscuro)}
+.container{width:90%;max-width:1200px;margin:auto}
+
+header{
+background:linear-gradient(135deg,var(--cafe),var(--dorado));
+color:white;
+padding:1rem;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000
+}
+
+nav{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:15px}
+.logo img{width:60px;height:60px;border-radius:50%}
+
+.nav-links{display:flex;list-style:none;gap:20px}
+.nav-links a{color:white;text-decoration:none;font-weight:bold}
+
+.hero{
+height:100vh;
+background:linear-gradient(rgba(111,78,55,.85),rgba(201,162,77,.85));
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+margin-top:80px;
+color:white
+}
+
+.cta-button{
+background:var(--dorado);
+padding:15px 30px;
+border-radius:30px;
+text-decoration:none;
+color:var(--cafe-oscuro);
+font-weight:bold
+}
+
+.services{padding:80px 0}
+.section-title{text-align:center;font-size:2.4rem;color:var(--cafe)}
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:40px
+}
+
+.service-card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+text-align:center
+}
+
+.contact-form{
+background:white;
+padding:30px;
+border-radius:15px;
+max-width:400px;
+margin:auto
+}
+
+.contact-form input,
+.contact-form select{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border:1px solid var(--plomo);
+border-radius:8px
+}
+
+.submit-btn{
+background:var(--cafe);
+color:white;
+padding:12px;
+border:none;
+border-radius:25px;
+width:100%;
+font-size:1.1rem;
+cursor:pointer
+}
+
+footer{
+background:var(--cafe-oscuro);
+color:white;
+text-align:center;
+padding:25px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="container">
+<div class="logo">
+<img src="logo-contasol.png" alt="CONTASOL">
+<div>
+<h1>CONTASOL S.A.C</h1>
+<p>Soluciones Contables</p>
+</div>
+</div>
+<ul class="nav-links">
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#reseñas">Reseñas</a></li>
+<li><a href="#citas">Citas</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="inicio" class="hero">
+<div>
+<h2>Contabilidad Profesional</h2>
+<p>Gestión contable clara y segura</p>
+<a href="#citas" class="cta-button">Reservar Cita</a>
+</div>
+</section>
+
+<section id="servicios" class="services">
+<div class="container">
+<h2 class="section-title">Servicios</h2>
+<div class="services-grid">
+<div class="service-card"><h3>Ventas</h3><p>Registro y control</p></div>
+<div class="service-card"><h3>Compras</h3><p>Gestión de gastos</p></div>
+<div class="service-card"><h3>Impuestos</h3><p>Cálculo SUNAT</p></div>
+</div>
+</div>
+</section>
+
+<section id="reseñas" class="services">
+<div class="container">
+<h2 class="section-title">Reseñas</h2>
+<div class="services-grid">
+<div class="service-card">⭐⭐⭐⭐⭐<br>Excelente servicio<br><strong>María López</strong></div>
+<div class="service-card">⭐⭐⭐⭐⭐<br>Muy confiable<br><strong>Juan Pérez</strong></div>
+<div class="service-card">⭐⭐⭐⭐⭐<br>Recomendado<br><strong>Empresa Sol SAC</strong></div>
+</div>
+</div>
+</section>
+
+<section id="citas" class="services">
+<div class="container">
+<h2 class="section-title">Reserva tu Cita</h2>
+
+<div class="contact-form">
+<input type="date" id="fecha">
+<select id="hora">
+<option>08:00 AM</option>
+<option>11:00 AM</option>
+<option>03:00 PM</option>
+<option>05:00 PM</option>
+</select>
+<button class="submit-btn" onclick="reservar()">Reservar</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2024 CONTASOL S.A.C</p>
+</footer>
+
+<script>
+function reservar(){
+const f=document.getElementById("fecha").value;
+const h=document.getElementById("hora").value;
+if(!f){alert("Selecciona fecha");return;}
+
+confetti({particleCount:180,spread:90,origin:{y:0.6}});
+alert("🎉 Cita reservada el "+f+" a las "+h);
+}
+</script>
+
+</body>
+</html>
