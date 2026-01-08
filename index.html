@@ -428,7 +428,7 @@
 
             try {
                 // 3. Envía el mensaje a tu n8n local (URL de tus imágenes)
-                const response = await fetch("http://localhost:5678/webhook-test/asistente-contable", {
+                const response = await fetch("http://localhost:5678/webhook/asistente-contable", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ chatInput: txt })
