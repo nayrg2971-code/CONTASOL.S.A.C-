@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contabilidad - Cuentas Claras para Todos</title>
+    <title>AUREA - Consultoría Financiera Corporativa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Esquema de colores: verde claro, azul y plomo */
+        /* --- PALETA DE COLORES CORPORATIVA (Café & Dorado) --- */
         :root {
-    --cafe-oscuro: #4B2E1E;      /* Café profundo – base */
-    --cafe: #6F4E37;             /* Café elegante */
-    --dorado: #C9A24D;           /* Dorado profesional */
-    --dorado-suave: #E6C97A;     /* Dorado claro */
-    --beige: #F5EFE6;            /* Fondo elegante */
-    --blanco: #FFFFFF;
-    --negro: #1C1C1C;
-}
+            --cafe-profundo: #2C1B18;    /* Fondo oscuro / Textos principales */
+            --cafe-medio: #4B3621;       /* Elementos secundarios */
+            --dorado: #C5A059;           /* Acentos de lujo */
+            --dorado-claro: #E5D3B3;     /* Fondos suaves */
+            --beige: #F9F7F2;            /* Fondo general de la web */
+            --blanco: #FFFFFF;
+            --gris-texto: #555555;
+        }
 
         * {
             margin: 0;
@@ -24,9 +24,10 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente más corporativa */
             line-height: 1.6;
-            color: var(--plomo-oscuro);
+            color: var(--gris-texto);
+            background-color: var(--beige);
         }
 
         .container {
@@ -36,16 +37,16 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* --- HEADER --- */
         header {
-            background: linear-gradient(135deg, var(--azul), var(--plomo));
-            color: var(--blanco);
+            background: var(--cafe-profundo);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-bottom: 2px solid var(--dorado);
         }
 
         nav {
@@ -58,23 +59,26 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            color: var(--blanco);
         }
 
-        .logo img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--dorado);
         }
 
         .logo h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .logo p {
-            font-size: 0.9rem;
-            font-style: italic;
-            opacity: 0.9;
+            font-size: 0.75rem;
+            color: var(--dorado);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .nav-links {
@@ -87,16 +91,20 @@
             color: var(--blanco);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
             transition: color 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .nav-links a:hover {
-            color: var(--verde-claro);
+            color: var(--dorado);
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(30, 144, 255, 0.8), rgba(112, 128, 144, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><text x="600" y="300" font-family="Arial" font-size="48" fill="%23ccc" text-anchor="middle">Contabilidad Profesional</text></svg>');
+            /* Fondo con degradado café y una imagen de oficina abstracta */
+            background: linear-gradient(rgba(44, 27, 24, 0.85), rgba(75, 54, 33, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -105,234 +113,243 @@
             justify-content: center;
             text-align: center;
             color: var(--blanco);
-            margin-top: 80px;
+            margin-top: 0; /* Reset para que cubra todo */
         }
 
         .hero-content h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .hero-content h2 span {
+            color: var(--dorado);
+            font-weight: 700;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            color: #ddd;
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--verde-claro);
-            color: var(--plomo-oscuro);
-            padding: 15px 30px;
+            background: var(--dorado);
+            color: var(--cafe-profundo);
+            padding: 18px 40px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 2px; /* Bordes más cuadrados para look corporativo */
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
         }
 
         .cta-button:hover {
             background: var(--blanco);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            color: var(--cafe-profundo);
+            transform: translateY(-3px);
         }
 
-        /* Services Section */
+        /* --- SERVICES SECTION --- */
         .services {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--blanco);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            color: var(--azul);
-            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: var(--cafe-profundo);
+            margin-bottom: 4rem;
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--verde-claro);
+            width: 60px;
+            height: 4px;
+            background: var(--dorado);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .service-card {
-            background: var(--blanco);
-            padding: 30px;
-            border-radius: 15px;
+            background: var(--beige);
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--dorado);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--verde-claro);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            background: var(--blanco);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-icon {
-            font-size: 3rem;
-            color: var(--azul);
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: var(--cafe-profundo);
+            margin-bottom: 25px;
         }
 
         .service-card h3 {
-            color: var(--plomo-oscuro);
+            color: var(--cafe-profundo);
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
         }
 
-        .service-card p {
-            color: var(--plomo);
-            line-height: 1.6;
-        }
-
-        /* About Section */
+        /* --- ABOUT SECTION --- */
         .about {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--verde-claro), var(--blanco));
+            padding: 100px 0;
+            background-color: var(--cafe-profundo); /* Fondo oscuro elegante */
+            color: var(--blanco);
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
         .about-text h3 {
-            color: var(--azul);
-            font-size: 2rem;
-            margin-bottom: 20px;
+            color: var(--dorado);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
         }
 
         .about-text p {
-            color: var(--plomo-oscuro);
+            color: #ddd;
             margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .about-image {
-            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 300;
         }
 
         .about-image img {
             max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid var(--dorado); /* Marco dorado */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
-        /* Contact Section */
+        /* --- CONTACT SECTION --- */
         .contact {
-            padding: 80px 0;
-            background: var(--plomo);
-            color: var(--blanco);
-        }
-
-        .contact .section-title {
-            color: var(--blanco);
+            padding: 100px 0;
+            background: var(--beige);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
         }
 
         .contact-info h3 {
-            color: var(--verde-claro);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            color: var(--cafe-profundo);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
         }
 
         .contact-info p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--gris-texto);
+            display: flex;
+            align-items: center;
         }
 
         .contact-info i {
-            color: var(--verde-claro);
-            margin-right: 10px;
+            color: var(--dorado);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 25px;
         }
 
         .contact-form {
             background: var(--blanco);
-            padding: 30px;
-            border-radius: 15px;
-            color: var(--plomo-oscuro);
-        }
-
-        .contact-form h3 {
-            color: var(--azul);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            padding: 40px;
+            border-top: 5px solid var(--cafe-profundo);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 2px solid var(--plomo);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #fdfdfd;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            outline: none;
-            border-color: var(--azul);
+            border-color: var(--dorado);
         }
 
         .submit-btn {
-            background: var(--azul);
-            color: var(--blanco);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
+            background: var(--cafe-profundo);
+            color: var(--dorado);
+            padding: 15px 35px;
+            border: 2px solid var(--cafe-profundo);
+            font-size: 1rem;
             cursor: pointer;
-            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            width: 100%;
         }
 
         .submit-btn:hover {
-            background: var(--plomo-oscuro);
+            background: transparent;
+            color: var(--cafe-profundo);
         }
 
-        /* WhatsApp Button */
+        /* --- CHATBOT & WHATSAPP --- */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
-            right: 30px;
+            left: 30px; /* Movido a la izquierda para balancear */
             background: #25D366;
             color: var(--blanco);
             width: 60px;
@@ -344,415 +361,317 @@
             font-size: 2rem;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
             z-index: 1000;
         }
 
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dorado);
+            color: var(--cafe-profundo);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: 2px solid var(--blanco);
         }
 
-        /* Chatbot */
         .chatbot-container {
             position: fixed;
-            bottom: 100px;
+            bottom: 110px;
             right: 30px;
-            width: 350px;
-            height: 500px;
+            width: 380px;
+            height: 550px;
             background: var(--blanco);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
             display: none;
             flex-direction: column;
             z-index: 1000;
+            border: 1px solid var(--dorado-claro);
+            overflow: hidden;
         }
 
         .chatbot-header {
-            background: var(--azul);
-            color: var(--blanco);
-            padding: 15px;
-            border-radius: 15px 15px 0 0;
+            background: var(--cafe-profundo);
+            color: var(--dorado);
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .chatbot-header h3 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        .chatbot-close {
-            background: none;
-            border: none;
-            color: var(--blanco);
-            font-size: 1.5rem;
-            cursor: pointer;
+            border-bottom: 2px solid var(--dorado);
         }
 
         .chatbot-messages {
             flex: 1;
             padding: 20px;
             overflow-y: auto;
-            background: #f9f9f9;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .message.user {
-            justify-content: flex-end;
-        }
-
-        .message-content {
-            max-width: 70%;
-            padding: 10px 15px;
-            border-radius: 15px;
-            font-size: 0.9rem;
+            background: #FAFAFA;
         }
 
         .message.bot .message-content {
-            background: var(--plomo);
-            color: var(--blanco);
+            background: var(--dorado-claro);
+            color: var(--cafe-profundo);
+            border-radius: 15px 15px 15px 0;
         }
 
         .message.user .message-content {
-            background: var(--verde-claro);
-            color: var(--plomo-oscuro);
+            background: var(--cafe-profundo);
+            color: var(--blanco);
+            border-radius: 15px 15px 0 15px;
         }
 
         .chatbot-input {
             padding: 15px;
-            border-top: 1px solid var(--plomo);
-            display: flex;
-            gap: 10px;
-        }
-
-        .chatbot-input input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid var(--plomo);
-            border-radius: 20px;
-            outline: none;
+            background: var(--white);
+            border-top: 1px solid #eee;
         }
 
         .chatbot-input button {
-            background: var(--azul);
-            color: var(--blanco);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 20px;
-            cursor: pointer;
+            background: var(--dorado);
+            color: var(--cafe-profundo);
+            font-weight: bold;
         }
 
-        .chatbot-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: var(--azul);
-            color: var(--blanco);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .chatbot-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
+        /* --- FOOTER --- */
         footer {
-            background: var(--plomo-oscuro);
-            color: var(--blanco);
+            background: #1a100e; /* Café casi negro */
+            color: #888;
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
+            border-top: 3px solid var(--dorado);
+            font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .chatbot-container {
-                width: 90%;
-                right: 5%;
-                left: 5%;
-            }
+            .nav-links { display: none; }
+            .hero-content h2 { font-size: 2.5rem; }
+            .about-content, .contact-content { grid-template-columns: 1fr; }
+            .chatbot-container { width: 90%; right: 5%; left: 5%; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav class="container">
             <div class="logo">
-                <img src="https://z-cdn-media.chatglm.cn/files/a6b6fce2-76f1-47b8-b3b3-f66fac687458_Gemini_Generated_Image_1ntp071ntp071ntp.png?auth_key=1790700833-445190d1304e446793687cd8e66f1058-0-cc65c231e308bf925a51b5f0826f9201" alt="Logo Contabilidad">
+                <i class="fas fa-balance-scale"></i>
                 <div>
-                    <h1>CONTABILIDAD</h1>
-                    <p>Cuentas Claras para Todos</p>
+                    <h1>AUREA</h1>
+                    <p>Consultores</p>
                 </div>
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Expertise</a></li>
+                <li><a href="#nosotros">La Firma</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h2>Servicios Contables para Todos</h2>
-            <p>Ayudamos a personas y pequeñas empresas con sus necesidades contables básicas de manera sencilla y accesible</p>
-            <a href="#servicios" class="cta-button">Conoce Nuestros Servicios</a>
+            <h2>Excelencia Financiera <br><span>& Tradición Corporativa</span></h2>
+            <p>Estrategias contables de alto nivel para empresas que buscan solidez y crecimiento sostenido.</p>
+            <a href="#contacto" class="cta-button">Agendar Consultoría</a>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="servicios" class="services">
         <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
+            <h2 class="section-title">Nuestras Soluciones</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Registro de Ventas</h3>
-                    <p>Te ayudamos a organizar y registrar todas tus ventas de manera clara y ordenada para un mejor control financiero.</p>
+                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Auditoría Fiscal</h3>
+                    <p>Análisis exhaustivo para garantizar el cumplimiento normativo y la optimización de recursos tributarios.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>Control de Compras</h3>
-                    <p>Lleva un registro detallado de tus compras y gastos para optimizar tu presupuesto y mejorar tu rentabilidad.</p>
+                    <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Gestión Patrimonial</h3>
+                    <p>Estrategias para proteger y maximizar el valor de los activos corporativos y familiares.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Cálculo de Tributos</h3>
-                    <p>Calculamos tus impuestos de manera precisa y te ayudamos a cumplir con tus obligaciones fiscales a tiempo.</p>
+                    <div class="service-icon"><i class="fas fa-landmark"></i></div>
+                    <h3>Consultoría Legal</h3>
+                    <p>Asesoramiento jurídico integral en materia contable, laboral y societaria.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="nosotros" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
+            <h2 class="section-title" style="color:var(--blanco);">Nuestra Firma</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Expertos en Contabilidad Básica</h3>
-                    <p>Somos un equipo de profesionales dedicados a hacer la contabilidad accesible para todos. Entendemos que las finanzas pueden ser complicadas, por eso ofrecemos servicios sencillos y claros.</p>
-                    <p>Nuestra misión es ayudar a personas y pequeñas empresas a tomar el control de sus finanzas con herramientas fáciles de usar y asesoramiento personalizado.</p>
-                    <p>Con años de experiencia en el sector, estamos comprometidos con la transparencia y la excelencia en el servicio.</p>
+                    <h3>Más de una década de prestigio</h3>
+                    <p>AUREA Consultores nació con la visión de transformar la contabilidad tradicional en una herramienta estratégica de poder.</p>
+                    <p>Fundada bajo principios de integridad inquebrantable y precisión técnica, nuestra firma se ha consolidado como un referente para el sector empresarial moderno.</p>
+                    <p>No solo contamos números; interpretamos el lenguaje de los negocios para su éxito.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://via.placeholder.com/500x400/90EE90/1E90FF?text=Contabilidad+Profesional" alt="Nuestro Equipo">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Oficina Corporativa">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contacto" class="contact">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
+            <h2 class="section-title">Hablemos de Negocios</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <p><i class="fas fa-phone"></i> Teléfono: 943706614</p>
-                    <p><i class="fas fa-envelope"></i> Email: info@contabilidadclaras.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Dirección: Lima, Perú</p>
-                    <p><i class="fas fa-clock"></i> Horario: Lunes a Viernes 9:00 - 18:00</p>
-                    <p>Estamos aquí para ayudarte con todas tus necesidades contables. No dudes en contactarnos.</p>
+                    <h3>Sede Central</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Financiera 123, Torre Oro, Oficina 501</p>
+                    <p><i class="fas fa-phone-alt"></i> Central: (01) 987-654-321</p>
+                    <p><i class="fas fa-envelope-open-text"></i> gerencia@aureaconsultores.com</p>
+                    <p><i class="fas fa-clock"></i> Atención: Lun - Vie, 8:30 AM - 6:00 PM</p>
+                    <br>
+                    <p style="font-style: italic; color: var(--dorado);">"La claridad es la base de la riqueza."</p>
                 </div>
                 <div class="contact-form">
-                    <h3>Envíanos un Mensaje</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Nombre:</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" placeholder="Nombre Completo / Razón Social" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" placeholder="Correo Corporativo" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Mensaje:</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <textarea id="message" rows="4" placeholder="Detalle de su requerimiento..." required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                        <button type="submit" class="submit-btn">Enviar Solicitud</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/51943706614?text=Hola%20necesito%20ayuda%20con%20servicios%20contables" class="whatsapp-btn" target="_blank">
+    <a href="#" class="whatsapp-btn">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Chatbot -->
     <div class="chatbot-toggle" onclick="toggleChatbot()">
-        <i class="fas fa-comments"></i>
+        <i class="fas fa-user-tie"></i>
     </div>
 
     <div class="chatbot-container" id="chatbotContainer">
         <div class="chatbot-header">
-            <h3>Asistente Virtual</h3>
-            <button class="chatbot-close" onclick="toggleChatbot()">
+            <h3><i class="fas fa-comment-dots"></i> Asistente AUREA</h3>
+            <button class="chatbot-close" onclick="toggleChatbot()" style="background:none; border:none; color:var(--dorado); font-size:1.2rem; cursor:pointer;">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="chatbot-messages" id="chatbotMessages">
             <div class="message bot">
                 <div class="message-content">
-                    ¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?
+                    Bienvenido a AUREA. Soy su asistente corporativo. ¿Desea información sobre nuestra historia o servicios?
                 </div>
             </div>
         </div>
         <div class="chatbot-input">
-            <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje..." onkeypress="handleChatbotKeyPress(event)">
-            <button onclick="sendMessage()">Enviar</button>
+            <input type="text" id="chatbotInput" placeholder="Consulte aquí..." onkeypress="handleChatbotKeyPress(event)" style="border-radius: 5px;">
+            <button onclick="sendMessage()" style="border-radius: 5px;">Enviar</button>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 CONTABILIDAD - Cuentas Claras para Todos. Todos los derechos reservados.</p>
+            <p>&copy; 2024 AUREA CONSULTORES S.A.C. - Excelencia y Tradición.</p>
         </div>
     </footer>
 
     <script>
-        // Chatbot functionality
+        // Lógica del Chatbot Corporativo
         function toggleChatbot() {
-            const chatbotContainer = document.getElementById('chatbotContainer');
-            chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
+            const container = document.getElementById('chatbotContainer');
+            container.style.display = container.style.display === 'flex' ? 'none' : 'flex';
         }
 
         function sendMessage() {
             const input = document.getElementById('chatbotInput');
             const message = input.value.trim();
-            
             if (message) {
                 addMessage(message, 'user');
                 input.value = '';
-                
-                // Simulate bot response
                 setTimeout(() => {
-                    const botResponse = getBotResponse(message);
-                    addMessage(botResponse, 'bot');
-                }, 1000);
+                    const response = getCorporateBotResponse(message);
+                    addMessage(response, 'bot');
+                }, 800);
             }
         }
 
-        function addMessage(message, sender) {
-            const messagesContainer = document.getElementById('chatbotMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            messageDiv.innerHTML = `<div class="message-content">${message}</div>`;
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        function addMessage(text, sender) {
+            const container = document.getElementById('chatbotMessages');
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.innerHTML = `<div class="message-content">${text}</div>`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
         }
 
-        function getBotResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            if (lowerMessage.includes('venta') || lowerMessage.includes('ventas')) {
-                return "Ofrecemos servicios de registro de ventas para ayudarte a mantener un control financiero ordenado. ¿Te gustaría saber más?";
-            } else if (lowerMessage.includes('compra') || lowerMessage.includes('compras')) {
-                return "Nuestro servicio de control de compras te ayuda a registrar y organizar todos tus gastos. ¿Necesitas ayuda con esto?";
-            } else if (lowerMessage.includes('tributo') || lowerMessage.includes('impuesto') || lowerMessage.includes('impuestos')) {
-                return "Calculamos tus impuestos de manera precisa y te ayudamos a cumplir con tus obligaciones fiscales. ¿Te gustaría una consulta?";
-            } else if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('tarifa')) {
-                return "Nuestros precios son accesibles y se ajustan a tus necesidades. Contáctanos directamente para un presupuesto personalizado.";
-            } else if (lowerMessage.includes('horario') || lowerMessage.includes('atención')) {
-                return "Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00. ¿En qué puedo ayudarte?";
-            } else if (lowerMessage.includes('gracias')) {
-                return "¡De nada! Estamos aquí para ayudarte con tus necesidades contables. ¿Hay algo más en lo que pueda asistirte?";
-            } else if (lowerMessage.includes('hola') || lowerMessage.includes('buenos dias') || lowerMessage.includes('buenas tardes')) {
-                return "¡Hola! Bienvenido a nuestro servicio de contabilidad. ¿En qué puedo ayudarte hoy?";
-            } else {
-                return "Entiendo tu consulta. Para una atención más personalizada, te recomiendo contactarnos directamente por WhatsApp o llamarnos al 943706614. ¿Hay algo específico en lo que pueda ayudarte?";
+        function handleChatbotKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        // --- CEREBRO DEL BOT (Respuestas Corporativas) ---
+        function getCorporateBotResponse(input) {
+            const text = input.toLowerCase();
+
+            // Historia / Creación
+            if (text.includes('creo') || text.includes('creó') || text.includes('fundacion') || text.includes('historia') || text.includes('año') || text.includes('cuando')) {
+                return "AUREA Consultores fue fundada en el año 2010 por un grupo de auditores senior con la visión de elevar el estándar contable en la región. Llevamos más de 14 años de trayectoria.";
+            }
+            // Quiénes son
+            else if (text.includes('quienes') || text.includes('somos') || text.includes('empresa') || text.includes('firma')) {
+                return "Somos una firma boutique especializada en consultoría financiera y tributaria. Nos caracterizamos por la confidencialidad, la ética y resultados de alto impacto para nuestros socios comerciales.";
+            }
+            // Servicios
+            else if (text.includes('servicio') || text.includes('hacen') || text.includes('ofrecen')) {
+                return "Nuestras especialidades incluyen: Auditoría Fiscal, Gestión Patrimonial de Activos y Consultoría Legal Corporativa.";
+            }
+            // Ubicación / Contacto
+            else if (text.includes('donde') || text.includes('ubicacion') || text.includes('direccion') || text.includes('telefono')) {
+                return "Nuestras oficinas centrales se encuentran en la Torre Oro, Av. Financiera 123. Puede llamarnos directamente al (01) 987-654-321 para agendar una cita.";
+            }
+            // Saludos
+            else if (text.includes('hola') || text.includes('buenas')) {
+                return "Saludos cordiales. Es un placer atenderle. ¿En qué aspecto de su contabilidad requiere asistencia hoy?";
+            }
+            // Despedida
+            else if (text.includes('gracias') || text.includes('chau')) {
+                return "Ha sido un honor asistirle. En AUREA quedamos a su entera disposición.";
+            }
+            // Default
+            else {
+                return "Entiendo su consulta. Para brindarle una respuesta precisa, le sugiero contactar a nuestra área de gerencia al correo gerencia@aureaconsultores.com.";
             }
         }
 
-        function handleChatbotKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-
-        // Contact form functionality
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would normally send the form data to a server
-            alert('¡Gracias por tu mensaje, ' + name + '! Te contactaremos pronto.');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Smooth scrolling for navigation links
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(30, 144, 255, 0.95), rgba(112, 128, 144, 0.95))';
-            } else {
-                header.style.background = 'linear-gradient(135deg, var(--azul), var(--plomo))';
-            }
+        // Form Submission Demo
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Solicitud enviada correctamente. Un asesor senior se pondrá en contacto a la brevedad.');
+            this.reset();
         });
     </script>
 </body>
