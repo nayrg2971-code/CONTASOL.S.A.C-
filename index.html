@@ -6,160 +6,86 @@
     <title>CONTASOL S.A.C. - Soluciones Contables</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- PALETA CORPORATIVA --- */
+        /* --- ESTILO CORPORATIVO (Café y Dorado) --- */
         :root {
             --cafe-profundo: #2C1B18;
             --cafe-medio: #4B3621;
             --dorado: #C5A059;
-            --dorado-brillante: #D4AF37;
             --beige: #F9F7F2;
             --blanco: #FFFFFF;
-            --gris-texto: #555555;
-            --naranja-accion: #E67E22; /* Color similar al botón de tu imagen */
+            --naranja-whatsapp: #E67E22; /* Color botón reserva */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--gris-texto); background-color: var(--beige); }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: var(--beige); color: #444; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- HEADER --- */
-        header {
-            background: var(--cafe-profundo);
-            padding: 1rem 0;
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-bottom: 2px solid var(--dorado);
-        }
+        /* HEADER */
+        header { background: var(--cafe-profundo); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 3px solid var(--dorado); }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 15px; color: var(--blanco); }
-        .logo i { font-size: 2.2rem; color: var(--dorado); }
-        .logo h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-        .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; letter-spacing: 0.5px; }
-        .nav-links a:hover { color: var(--dorado); }
-
-        /* --- HERO --- */
-        .hero {
-            background: linear-gradient(rgba(44, 27, 24, 0.9), rgba(75, 54, 33, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center;
-            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--blanco);
-        }
-        .hero-content h2 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 300; }
-        .hero-content h2 span { color: var(--dorado); font-weight: 700; }
+        .logo { color: white; display: flex; align-items: center; gap: 10px; }
+        .logo h1 { font-size: 1.5rem; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: white; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; }
         
-        /* BOTÓN PRINCIPAL */
-        .cta-button {
-            display: inline-block; background: var(--dorado); color: var(--cafe-profundo); padding: 18px 40px;
-            text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-            transition: 0.3s; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3); border-radius: 4px; cursor: pointer; border:none;
+        /* HERO */
+        .hero { 
+            background: linear-gradient(rgba(44,27,24,0.9), rgba(75,54,33,0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40');
+            background-size: cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
-        .cta-button:hover { background: var(--blanco); transform: translateY(-3px); }
+        .hero h2 { font-size: 3rem; margin-bottom: 20px; }
+        .cta-button { 
+            background: var(--dorado); color: var(--cafe-profundo); padding: 15px 40px; 
+            text-decoration: none; font-weight: bold; border-radius: 5px; cursor: pointer; border: none; font-size: 1rem;
+        }
 
-        /* --- SECCIONES GENERALES --- */
-        .section-padding { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 2.2rem; color: var(--cafe-profundo); margin-bottom: 3rem; position: relative; text-transform: uppercase; }
-        .section-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--dorado); }
-
-        /* --- ALIADOS --- */
-        .partners { background: var(--blanco); padding: 40px 0; border-bottom: 1px solid #eee; }
-        .partners-container { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; opacity: 0.7; }
-        .partner-item { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: bold; color: var(--cafe-medio); filter: grayscale(100%); transition: 0.3s; }
-        .partner-item:hover { filter: grayscale(0%); color: var(--dorado); }
-
-        /* --- SERVICIOS --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: var(--blanco); padding: 40px 30px; text-align: center; transition: 0.3s; border-bottom: 3px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .service-card:hover { transform: translateY(-5px); border-bottom: 3px solid var(--dorado); }
-        .service-icon { font-size: 2.5rem; color: var(--cafe-profundo); margin-bottom: 20px; }
-
-        /* --- TESTIMONIOS --- */
-        .testimonials { background: var(--cafe-profundo); color: white; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .testimonial-card { background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--dorado); border-radius: 4px; }
-        .testimonial-text { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; color: #ddd; }
-        .client-name { color: var(--dorado); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
-
-        /* --- CONTACTO (NUEVO DISEÑO CON MAPA) --- */
-        .contact-section { background: var(--blanco); }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .contact-info-box { background: var(--cafe-profundo); color: white; padding: 40px; border-radius: 10px; }
-        .contact-item { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-size: 1.1rem; }
-        .contact-item i { color: var(--dorado); font-size: 1.5rem; }
+        /* CONTACTO Y MAPA */
+        .contact-section { padding: 80px 0; background: white; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         
-        /* Mapa Estático Simulado (Como en tu imagen) */
-        .map-container { 
-            background-image: url('https://i.ibb.co/wzn2gRL/mapa-huaraz.png'); /* Placeholder de mapa */
-            background-size: cover; background-position: center;
-            height: 300px; width: 100%; border-radius: 10px; border: 2px solid var(--dorado);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .map-placeholder-text { background: rgba(255,255,255,0.9); padding: 10px 20px; border-radius: 5px; font-weight: bold; color: var(--cafe-profundo); }
+        /* Caja de Info */
+        .contact-info { background: var(--cafe-profundo); color: white; padding: 40px; border-radius: 10px; }
+        .info-item { margin-bottom: 20px; display: flex; gap: 15px; align-items: center; font-size: 1.1rem; }
+        .info-item i { color: var(--dorado); font-size: 1.5rem; }
 
-        /* --- NUEVO MODAL DE RESERVA (ESTILO IMAGEN) --- */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(44, 27, 24, 0.95); z-index: 2000;
-            display: none; justify-content: center; align-items: center;
+        /* Mapa Google */
+        .map-wrapper { 
+            height: 100%; min-height: 350px; border-radius: 10px; overflow: hidden; 
+            border: 2px solid var(--dorado); 
         }
-        .modal-content {
-            background: white; width: 95%; max-width: 800px;
-            border-radius: 15px; overflow: hidden; display: flex; flex-direction: column;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease;
+        iframe { width: 100%; height: 100%; border: 0; }
+
+        /* MODAL RESERVA */
+        .modal-overlay { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; 
         }
-        .modal-header {
-            background: var(--cafe-profundo); color: var(--dorado); padding: 20px;
-            display: flex; justify-content: space-between; align-items: center;
+        .modal-content { 
+            background: white; width: 95%; max-width: 800px; padding: 0; border-radius: 10px; 
+            overflow: hidden; display: flex; flex-direction: column; 
         }
-        .modal-body {
-            padding: 30px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px;
-        }
+        .modal-header { background: var(--cafe-profundo); color: var(--dorado); padding: 20px; display: flex; justify-content: space-between; }
+        .modal-body { padding: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         
-        /* Calendario Visual */
-        .calendar-wrapper h3 { margin-bottom: 15px; color: var(--cafe-profundo); }
-        .calendar-grid {
-            display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center;
-        }
-        .day-name { font-weight: bold; font-size: 0.8rem; color: #999; margin-bottom: 5px; }
-        .day-num {
-            padding: 10px; border: 1px solid #eee; border-radius: 5px; cursor: pointer; transition: 0.2s;
-            font-weight: 500; color: var(--gris-texto);
-        }
-        .day-num:hover { border-color: var(--naranja-accion); color: var(--naranja-accion); }
-        .day-num.active { background: var(--naranja-accion); color: white; border-color: var(--naranja-accion); font-weight: bold; transform: scale(1.05); }
-        .day-num.disabled { background: #f9f9f9; color: #ddd; cursor: not-allowed; }
-
+        /* Calendario Simple */
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; margin-top: 10px; }
+        .day { padding: 10px; border: 1px solid #ddd; cursor: pointer; }
+        .day:hover { background: #eee; }
+        .day.active { background: var(--naranja-whatsapp); color: white; font-weight: bold; border-color: var(--naranja-whatsapp); }
+        
         /* Horas */
-        .time-wrapper h3 { margin-bottom: 15px; color: var(--cafe-profundo); }
-        .time-slots { display: flex; flex-direction: column; gap: 10px; }
-        .time-btn {
-            padding: 12px; border: 1px solid #ccc; border-radius: 5px; background: white;
-            cursor: pointer; transition: 0.2s; font-size: 0.95rem; text-align: center;
-        }
-        .time-btn:hover { border-color: var(--naranja-accion); }
-        .time-btn.active { background: var(--naranja-accion); color: white; border-color: var(--naranja-accion); font-weight: bold; }
+        .time-options { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+        .time-btn { padding: 10px; border: 1px solid #ddd; cursor: pointer; text-align: center; }
+        .time-btn.active { background: var(--naranja-whatsapp); color: white; border-color: var(--naranja-whatsapp); }
 
-        /* Resumen y Botón Final */
-        .booking-summary {
-            grid-column: 1 / -1; margin-top: 10px; padding-top: 20px; border-top: 1px solid #eee;
-            display: flex; flex-direction: column; align-items: center; gap: 15px;
+        /* Botón WhatsApp Final */
+        .wa-btn { 
+            grid-column: 1 / -1; background: var(--naranja-whatsapp); color: white; 
+            padding: 15px; border: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px; width: 100%;
         }
-        .summary-text { font-size: 1.1rem; color: var(--naranja-accion); font-weight: bold; }
-        .whatsapp-submit-btn {
-            background: var(--naranja-accion); color: white; border: none; padding: 15px 50px;
-            font-size: 1.1rem; font-weight: bold; border-radius: 5px; cursor: pointer;
-            display: flex; align-items: center; gap: 10px; transition: 0.3s; width: 100%; justify-content: center;
-        }
-        .whatsapp-submit-btn:hover { background: #d35400; transform: translateY(-2px); }
-        .whatsapp-submit-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .wa-btn:disabled { background: #ccc; cursor: not-allowed; }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .modal-body { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-        }
-        @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
-        /* FOOTER */
-        footer { background: #1a100e; color: #888; text-align: center; padding: 40px 0; border-top: 3px solid var(--dorado); font-size: 0.9rem; }
+        @media(max-width:768px){ .contact-grid, .modal-body { grid-template-columns: 1fr; } .nav-links{display:none;} }
     </style>
 </head>
 <body>
@@ -167,240 +93,138 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <i class="fas fa-chart-pie"></i>
-                <div>
-                    <h1>CONTASOL S.A.C.</h1>
-                    <p style="color:var(--dorado); font-size:0.7rem; letter-spacing:2px;">ASESORÍA EMPRESARIAL</p>
-                </div>
+                <i class="fas fa-balance-scale fa-2x" style="color:var(--dorado)"></i>
+                <div><h1>CONTASOL S.A.C.</h1><small style="color:var(--dorado)">ASESORÍA EMPRESARIAL</small></div>
             </div>
             <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#">Inicio</a></li>
                 <li><a href="#contacto">Ubicación</a></li>
-                <li><a href="#" onclick="abrirModal()" style="color:var(--naranja-accion); font-weight:bold;">RESERVAR CITA</a></li>
+                <li><a href="#" onclick="abrirModal()">Reservar Cita</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h2>CONTASOL S.A.C.<br><span>Aliados de tu Crecimiento</span></h2>
-            <p>Soluciones contables y tributarias con el respaldo que tu empresa merece.</p>
+    <section class="hero">
+        <div>
+            <h2>Aliados de tu Crecimiento</h2>
             <button onclick="abrirModal()" class="cta-button">RESERVAR ASESORÍA</button>
         </div>
     </section>
 
-    <section class="partners">
+    <section id="contacto" class="contact-section">
         <div class="container">
-            <p style="text-align:center; color:#999; margin-bottom:20px; font-size:0.9rem; text-transform:uppercase;">Trabajamos bajo los lineamientos de</p>
-            <div class="partners-container">
-                <div class="partner-item"><i class="fas fa-building"></i> SUNAT</div>
-                <div class="partner-item"><i class="fas fa-book-reader"></i> Colegio de Contadores</div>
-                <div class="partner-item"><i class="fas fa-balance-scale"></i> Cámara de Comercio</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicios" class="section-padding services" style="background:var(--beige);">
-        <div class="container">
-            <h2 class="section-title">Nuestra Experiencia</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
-                    <h3>Declaración Mensual</h3>
-                    <p>Gestión puntual de IGV y Renta ante SUNAT para evitar multas.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-users"></i></div>
-                    <h3>Planillas y Laboral</h3>
-                    <p>Cálculo de beneficios sociales, gratificaciones y CTS conforme a ley.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Constitución de Empresas</h3>
-                    <p>Te acompañamos desde la minuta hasta la inscripción en RUC.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="section-padding contact-section">
-        <div class="container">
-            <h2 class="section-title">Ubícanos</h2>
+            <h2 style="text-align:center; color:var(--cafe-profundo); margin-bottom:30px;">ENCUÉNTRANOS</h2>
             <div class="contact-grid">
-                <div>
-                    <div class="map-container">
-                        <div class="map-placeholder-text"><i class="fas fa-map-marked-alt"></i> Ver en Google Maps</div>
-                    </div>
-                    <p style="margin-top:10px; font-size:0.9rem; text-align:center; color:#666;">Referencia: Cerca a la Universidad Nacional</p>
-                </div>
                 
-                <div class="contact-info-box">
-                    <h3 style="color:var(--dorado); margin-bottom:20px;">Información de Contacto</h3>
-                    
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i> 
-                        <div>
-                            <strong>WhatsApp Central:</strong><br>
-                            +51 943 706 614
-                        </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div><strong>WhatsApp:</strong><br>+51 943 706 614</div>
                     </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i> 
-                        <div>
-                            <strong>Correo Electrónico:</strong><br>
-                            nayrg2971@gmail.com
-                        </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><strong>Email:</strong><br>nayrg2971@gmail.com</div>
                     </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i> 
-                        <div>
-                            <strong>Dirección:</strong><br>
-                            Jr. Agusto B. Legia 798, Huaraz.
-                        </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><strong>Dirección:</strong><br>Jr. Agusto B. Legia 798, Huaraz</div>
                     </div>
-
-                    <div style="margin-top:30px; border-top:1px solid #ffffff33; padding-top:20px;">
-                        <small style="color:var(--dorado);">MEDIOS DE PAGO ACEPTADOS:</small><br>
+                    <div style="margin-top:20px; border-top:1px solid #ffffff44; padding-top:15px;">
+                        <small style="color:var(--dorado)">PAGOS CON:</small><br>
                         <strong>BCP, BBVA, YAPE, PLIN</strong>
                     </div>
                 </div>
+
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.332398285526!2d-77.5293674!3d-9.5262274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a90d1030132339%3A0x6335193910408544!2sJr.%20Augusto%20B.%20Leguia%20798%2C%20Huaraz%2002001!5e0!3m2!1ses!2spe!4v1709187302144!5m2!1ses!2spe" 
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 CONTASOL S.A.C. - Todos los derechos reservados.</p>
-        </div>
-    </footer>
 
     <div id="modalReserva" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="far fa-calendar-alt"></i> Reserva tu Consultoría Gratuita</h3>
+                <h3>📅 Reserva tu Consultoría</h3>
                 <span onclick="cerrarModal()" style="cursor:pointer; font-size:1.5rem;">&times;</span>
             </div>
-            
             <div class="modal-body">
-                <div class="calendar-wrapper">
-                    <h3 id="mesAnio">Enero 2026</h3> <div class="calendar-grid">
-                        <div class="day-name">Lu</div><div class="day-name">Ma</div><div class="day-name">Mi</div>
-                        <div class="day-name">Ju</div><div class="day-name">Vi</div><div class="day-name">Sa</div>
-                        <div class="day-name">Do</div>
-                        <div id="diasCalendario" style="display:contents;"></div>
+                
+                <div>
+                    <h4>1. Selecciona un día (Enero 2026)</h4>
+                    <div class="calendar-grid" id="calendario">
+                        </div>
+                </div>
+
+                <div>
+                    <h4>2. Selecciona hora</h4>
+                    <div class="time-options">
+                        <div class="time-btn" onclick="selectHora('09:00 AM', this)">09:00 AM</div>
+                        <div class="time-btn" onclick="selectHora('11:00 AM', this)">11:00 AM</div>
+                        <div class="time-btn" onclick="selectHora('03:00 PM', this)">03:00 PM</div>
+                        <div class="time-btn" onclick="selectHora('05:00 PM', this)">05:00 PM</div>
                     </div>
                 </div>
 
-                <div class="time-wrapper">
-                    <h3>Horas Disponibles:</h3>
-                    <div class="time-slots">
-                        <div class="time-btn" onclick="seleccionarHora(this, '09:00 AM')">09:00 AM</div>
-                        <div class="time-btn" onclick="seleccionarHora(this, '11:00 AM')">11:00 AM</div>
-                        <div class="time-btn" onclick="seleccionarHora(this, '03:00 PM')">03:00 PM</div>
-                        <div class="time-btn" onclick="seleccionarHora(this, '05:00 PM')">05:00 PM</div>
-                    </div>
-                </div>
-
-                <div class="booking-summary">
-                    <div class="summary-text" id="resumenCita"><i class="fas fa-thumbtack"></i> Selecciona un día y una hora</div>
-                    <button id="btnWhatsapp" class="whatsapp-submit-btn" onclick="enviarWhatsapp()" disabled>
-                        RESERVAR POR WHATSAPP <i class="fab fa-whatsapp"></i>
-                    </button>
-                </div>
+                <button id="btnWsp" class="wa-btn" onclick="irAWhatsapp()" disabled>
+                    RESERVAR POR WHATSAPP <i class="fab fa-whatsapp"></i>
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        // --- VARIABLES GLOBALES ---
-        let fechaSeleccionada = null; // Guardará "12 de Enero"
-        let horaSeleccionada = null;  // Guardará "03:00 PM"
+        // VARIABLES
+        let fechaSel = "";
+        let horaSel = "";
 
-        // --- 1. GENERADOR DE CALENDARIO ---
-        function generarCalendario() {
-            const contenedor = document.getElementById('diasCalendario');
-            const titulo = document.getElementById('mesAnio');
-            
-            // Fecha actual
-            const fecha = new Date();
-            const mesNombres = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            
-            titulo.innerText = `${mesNombres[fecha.getMonth()]} ${fecha.getFullYear()}`;
-
-            // Limpiar
-            contenedor.innerHTML = '';
-
-            // Generar días falsos de relleno para empezar en el día correcto (Ej: Miércoles)
-            // Para simplificar, generaremos un mes genérico de 30 días empezando "en blanco"
-            for(let i=0; i<2; i++) {
-                contenedor.innerHTML += `<div></div>`; 
-            }
-
-            // Generar días del 1 al 30
-            for(let i=1; i<=31; i++) {
-                // Deshabilitar días pasados (simple visual)
-                let claseExtra = (i < fecha.getDate()) ? 'disabled' : '';
-                let clickEvent = (i < fecha.getDate()) ? '' : `onclick="seleccionarDia(this, '${i} de ${mesNombres[fecha.getMonth()]}')"`;
-                
-                contenedor.innerHTML += `<div class="day-num ${claseExtra}" ${clickEvent}>${i}</div>`;
-            }
+        // 1. GENERAR CALENDARIO (Días 1 al 31)
+        const cal = document.getElementById('calendario');
+        for(let i=1; i<=31; i++){
+            cal.innerHTML += `<div class="day" onclick="selectDia(${i}, this)">${i}</div>`;
         }
 
-        // --- 2. LÓGICA DE SELECCIÓN ---
-        function seleccionarDia(elemento, textoFecha) {
-            // Quitar clase active de otros
-            document.querySelectorAll('.day-num').forEach(d => d.classList.remove('active'));
-            // Poner al actual
-            elemento.classList.add('active');
-            
-            fechaSeleccionada = textoFecha;
-            actualizarResumen();
+        // 2. SELECCIONAR DÍA
+        function selectDia(dia, elem) {
+            document.querySelectorAll('.day').forEach(d => d.classList.remove('active'));
+            elem.classList.add('active');
+            fechaSel = dia + " de Enero";
+            verificar();
         }
 
-        function seleccionarHora(elemento, textoHora) {
+        // 3. SELECCIONAR HORA
+        function selectHora(hora, elem) {
             document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-            elemento.classList.add('active');
-            
-            horaSeleccionada = textoHora;
-            actualizarResumen();
+            elem.classList.add('active');
+            horaSel = hora;
+            verificar();
         }
 
-        function actualizarResumen() {
-            const resumen = document.getElementById('resumenCita');
-            const btn = document.getElementById('btnWhatsapp');
-
-            if(fechaSeleccionada && horaSeleccionada) {
-                resumen.innerText = `📍 Cita: ${fechaSeleccionada} a las ${horaSeleccionada}`;
+        // 4. VERIFICAR PARA ACTIVAR BOTÓN
+        function verificar() {
+            const btn = document.getElementById('btnWsp');
+            if(fechaSel && horaSel) {
                 btn.disabled = false;
-            } else {
-                resumen.innerText = "Selecciona un día y una hora";
-                btn.disabled = true;
+                btn.innerHTML = `CONFIRMAR CITA: ${fechaSel} - ${horaSel} <i class="fab fa-whatsapp"></i>`;
             }
         }
 
-        // --- 3. ENVÍO A WHATSAPP ---
-        function enviarWhatsapp() {
-            if(!fechaSeleccionada || !horaSeleccionada) return;
-
+        // 5. FUNCIÓN IR A WHATSAPP (EL COMANDO QUE PEDISTE)
+        function irAWhatsapp() {
             const telefono = "51943706614";
-            const mensaje = `Hola CONTASOL, deseo reservar mi consultoría gratuita para el día: ${fechaSeleccionada} a las ${horaSeleccionada}. Quedo a la espera de su confirmación.`;
+            const texto = `Hola CONTASOL, deseo reservar mi consultoría gratuita para el día: ${fechaSel} a las ${horaSel}.`;
             
-            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+            // Abre WhatsApp con el mensaje
+            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`, '_blank');
             cerrarModal();
         }
 
-        // --- 4. CONTROL DEL MODAL ---
-        function abrirModal() {
-            document.getElementById('modalReserva').style.display = 'flex';
-            generarCalendario(); // Generar al abrir
-        }
-        function cerrarModal() {
-            document.getElementById('modalReserva').style.display = 'none';
-        }
-        
-        // Cerrar al dar clic fuera
-        window.onclick = function(e) {
-            if(e.target
+        // MODAL
+        function abrirModal() { document.getElementById('modalReserva').style.display = 'flex'; }
+        function cerrarModal() { document.getElementById('modalReserva').style.display = 'none'; }
+    </script>
+</body>
+</html>
