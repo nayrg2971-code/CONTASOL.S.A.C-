@@ -410,7 +410,47 @@
             }, 500);
         }
         function handleEnter(e) { if(e.key==='Enter') sendMessage(); }
-        function sendMessage() { const i = document.getElementById('chatbotInput'); const txt = i.value.trim(); if(!txt) return; addMsgUser(txt); i.value = ""; setTimeout(() => { addMsgBot("Usa los botones o escríbenos al WhatsApp."); addOptions(["Volver al inicio"]); }, 800); }
+        async function sendMessage() {
+            const i = document.getElementById('chatbotInput');
+            const c = document.getElementById('chatbotMessages');
+            const txt = i.value.trim();
+            
+            if (!txt) return;
+
+            // 1. Muestra tu mensaje en el chat
+            addMsgUser(txt);
+            i.value = "";
+
+            // 2. Muestra que la IA está procesando
+            const loadingId = "bot-loading-" + Date.now();
+            c.innerHTML += `<div class="message bot" id="${loadingId}">...</div>`;
+            c.scrollTop = c.scrollHeight;
+
+            try {
+                // 3. Conexión con tu n8n local
+                const response = await fetch("http://localhost:5678/webhook/asistente-contable", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ chatInput: txt })
+                });
+
+                const data = await response.json();
+                
+                // 4. Quita los puntos y pon la respuesta de la IA
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) loadingElement.remove();
+                
+                addMsgBot(data.output);
+
+            } catch (error) {
+                console.error("Error:", error);
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) {
+                    loadingElement.innerText = "Error: Asegúrate de que n8n esté abierto y en 'Active'.";
+                }
+            }
+        }
     </script>
 </body>
 </html>
+
