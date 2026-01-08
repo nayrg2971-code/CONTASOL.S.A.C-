@@ -56,26 +56,32 @@
         .service-card:hover { transform: translateY(-5px); border-bottom: 3px solid var(--dorado); }
         .service-icon { font-size: 2.5rem; color: var(--cafe-profundo); margin-bottom: 20px; }
 
-        /* --- TESTIMONIOS --- */
+        /* --- TESTIMONIOS CON FOTOS --- */
         .testimonials { padding: 80px 0; background: var(--cafe-profundo); color: white; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .testimonial-card { background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--dorado); border-radius: 4px; }
-        .testimonial-text { font-style: italic; font-size: 1rem; margin-bottom: 20px; color: #ddd; }
+        .testimonial-card { 
+            background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; 
+            text-align: center; transition: 0.3s; border-top: 4px solid var(--dorado);
+        }
+        .testimonial-card:hover { background: rgba(255,255,255,0.1); }
+        
+        /* Foto del cliente */
+        .client-photo {
+            width: 70px; height: 70px; border-radius: 50%; object-fit: cover;
+            border: 3px solid var(--dorado); margin-bottom: 15px;
+        }
+
+        .testimonial-text { font-style: italic; font-size: 0.95rem; margin-bottom: 20px; color: #ddd; }
         .client-name { color: var(--dorado); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
         .stars { color: var(--dorado); margin-bottom: 10px; font-size: 0.8rem; }
 
         /* CONTACTO Y MAPA */
         .contact-section { padding: 80px 0; background: white; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
         .contact-info { background: var(--cafe-profundo); color: white; padding: 40px; border-radius: 10px; }
         .info-item { margin-bottom: 20px; display: flex; gap: 15px; align-items: center; font-size: 1.1rem; }
         .info-item i { color: var(--dorado); font-size: 1.5rem; }
-
-        .map-wrapper { 
-            height: 100%; min-height: 350px; border-radius: 10px; overflow: hidden; 
-            border: 2px solid var(--dorado); 
-        }
+        .map-wrapper { height: 100%; min-height: 350px; border-radius: 10px; overflow: hidden; border: 2px solid var(--dorado); }
         iframe { width: 100%; height: 100%; border: 0; }
 
         /* MODAL RESERVA */
@@ -89,21 +95,40 @@
         }
         .modal-header { background: var(--cafe-profundo); color: var(--dorado); padding: 20px; display: flex; justify-content: space-between; }
         .modal-body { padding: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        
         .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; margin-top: 10px; }
         .day { padding: 10px; border: 1px solid #ddd; cursor: pointer; }
         .day:hover { background: #eee; }
         .day.active { background: var(--naranja-whatsapp); color: white; font-weight: bold; border-color: var(--naranja-whatsapp); }
-        
         .time-options { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
         .time-btn { padding: 10px; border: 1px solid #ddd; cursor: pointer; text-align: center; }
         .time-btn.active { background: var(--naranja-whatsapp); color: white; border-color: var(--naranja-whatsapp); }
-
         .wa-btn { 
             grid-column: 1 / -1; background: var(--naranja-whatsapp); color: white; 
             padding: 15px; border: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px; width: 100%;
         }
         .wa-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        /* CHATBOT AVANZADO */
+        .chatbot-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--dorado); color: var(--cafe-profundo); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; border: 2px solid white; }
+        .chatbot-container { position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px; background: white; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; z-index: 1000; border: 1px solid var(--dorado); overflow: hidden; }
+        .chatbot-header { background: var(--cafe-profundo); color: var(--dorado); padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; background: #fafafa; display: flex; flex-direction: column; gap: 10px; }
+        
+        .message { padding: 10px 15px; border-radius: 10px; font-size: 0.9rem; max-width: 80%; }
+        .message.bot { background: var(--dorado); color: var(--cafe-profundo); align-self: flex-start; border-bottom-left-radius: 0; }
+        .message.user { background: var(--cafe-profundo); color: white; align-self: flex-end; border-bottom-right-radius: 0; }
+        
+        /* Botones del Chatbot */
+        .chat-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+        .chat-btn-option { 
+            background: white; border: 1px solid var(--dorado); color: var(--cafe-profundo); 
+            padding: 5px 10px; border-radius: 15px; cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+        }
+        .chat-btn-option:hover { background: var(--dorado); color: white; }
+
+        .chatbot-input { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 5px; }
+        .chatbot-input input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline:none; }
+        .chatbot-input button { background: var(--cafe-profundo); color: var(--dorado); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
 
         /* FOOTER */
         footer { background: #1a100e; color: #888; text-align: center; padding: 40px 0; border-top: 3px solid var(--dorado); font-size: 0.9rem; }
@@ -137,7 +162,7 @@
 
     <section class="partners">
         <div class="container">
-            <p style="text-align:center; color:#999; margin-bottom:20px; font-size:0.9rem; text-transform:uppercase;">Empresas y entidades con las que trabajamos</p>
+            <p style="text-align:center; color:#999; margin-bottom:20px; font-size:0.9rem; text-transform:uppercase;">Respaldo Institucional</p>
             <div class="partners-container">
                 <div class="partner-item"><i class="fas fa-university"></i> SUNAT</div>
                 <div class="partner-item"><i class="fas fa-book"></i> Colegio de Contadores</div>
@@ -174,16 +199,19 @@
             <h2 class="section-title" style="color:white; border-color:white;">Clientes Satisfechos</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="client-photo">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="testimonial-text">"Gracias a CONTASOL ordené mis finanzas. Son muy profesionales y el trato es excelente."</p>
                     <p class="client-name">— Juan Pérez, Ferretería El Sol</p>
                 </div>
                 <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="client-photo">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="testimonial-text">"Me ayudaron con una fiscalización de SUNAT y salí sin multas. Recomendadísimos."</p>
-                    <p class="client-name">— María Lopez, Restaurante Sabor Norteño</p>
+                    <p class="client-name">— María Lopez, Restaurante Sabor</p>
                 </div>
                 <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Cliente" class="client-photo">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
                     <p class="testimonial-text">"El servicio de planillas es puntual. Mis empleados siempre reciben sus boletas a tiempo."</p>
                     <p class="client-name">— Ing. Roberto Diaz, Constructora RD</p>
@@ -196,120 +224,169 @@
         <div class="container">
             <h2 class="section-title">Ubícanos</h2>
             <div class="contact-grid">
-                
                 <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div><strong>WhatsApp:</strong><br>+51 943 706 614</div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div><strong>Email:</strong><br>nayrg2971@gmail.com</div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div><strong>Dirección:</strong><br>Jr. Agusto B. Legia 798, Huaraz</div>
-                    </div>
+                    <div class="info-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp:</strong><br>+51 943 706 614</div></div>
+                    <div class="info-item"><i class="fas fa-envelope"></i><div><strong>Email:</strong><br>nayrg2971@gmail.com</div></div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><strong>Dirección:</strong><br>Jr. Agusto B. Legia 798, Huaraz</div></div>
                     <div style="margin-top:20px; border-top:1px solid #ffffff44; padding-top:15px;">
-                        <small style="color:var(--dorado)">PAGOS CON:</small><br>
-                        <strong>BCP, BBVA, YAPE, PLIN</strong>
+                        <small style="color:var(--dorado)">PAGOS CON:</small><br><strong>BCP, BBVA, YAPE, PLIN</strong>
                     </div>
                 </div>
-
                 <div class="map-wrapper">
-                    <iframe 
-                        src="https://maps.google.com/maps?q=Jr.+Agusto+B.+Legia+798,+Huaraz&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.536768165345!2d-77.5305!3d-9.5285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a90d12e6973959%3A0x6b4a5360980470b1!2sHuaraz%2C%20Per%C3%fa!5e0!3m2!1ses!2spe!4v1620000000000!5m2!1ses!2spe" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 CONTASOL S.A.C. - Todos los derechos reservados.</p>
-        </div>
+        <div class="container"><p>© 2026 CONTASOL S.A.C. - Todos los derechos reservados.</p></div>
     </footer>
 
     <div id="modalReserva" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header">
-                <h3>📅 Reserva tu Consultoría</h3>
-                <span onclick="cerrarModal()" style="cursor:pointer; font-size:1.5rem;">×</span>
-            </div>
+            <div class="modal-header"><h3>📅 Reserva tu Consultoría</h3><span onclick="cerrarModal()" style="cursor:pointer; font-size:1.5rem;">×</span></div>
             <div class="modal-body">
-                
-                <div>
-                    <h4>1. Selecciona un día (Enero 2026)</h4>
-                    <div class="calendar-grid" id="calendario">
-                        </div>
-                </div>
-
+                <div><h4>1. Selecciona un día</h4><div class="calendar-grid" id="calendario"></div></div>
                 <div>
                     <h4>2. Selecciona hora</h4>
                     <div class="time-options">
                         <div class="time-btn" onclick="selectHora('09:00 AM', this)">09:00 AM</div>
-                        <div class="time-btn" onclick="selectHora('11:00 AM', this)">11:00 AM</div>
                         <div class="time-btn" onclick="selectHora('03:00 PM', this)">03:00 PM</div>
                         <div class="time-btn" onclick="selectHora('05:00 PM', this)">05:00 PM</div>
                     </div>
+                    <button id="btnWsp" class="wa-btn" onclick="irAWhatsapp()" disabled>RESERVAR <i class="fab fa-whatsapp"></i></button>
                 </div>
-
-                <button id="btnWsp" class="wa-btn" onclick="irAWhatsapp()" disabled>
-                    RESERVAR POR WHATSAPP <i class="fab fa-whatsapp"></i>
-                </button>
             </div>
         </div>
     </div>
 
+    <div class="chatbot-toggle" onclick="toggleChatbot()"><i class="fas fa-comment-dots"></i></div>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h4>Asistente CONTASOL</h4>
+            <span style="cursor:pointer;" onclick="toggleChatbot()">X</span>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Escribe o selecciona..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <script>
-        // VARIABLES
-        let fechaSel = "";
-        let horaSel = "";
-
-        // 1. GENERAR CALENDARIO (Días 1 al 31)
+        // --- 1. LÓGICA DE RESERVAS (CALENDARIO) ---
+        let fechaSel = "", horaSel = "";
         const cal = document.getElementById('calendario');
-        for(let i=1; i<=31; i++){
-            cal.innerHTML += `<div class="day" onclick="selectDia(${i}, this)">${i}</div>`;
-        }
+        for(let i=1; i<=30; i++){ cal.innerHTML += `<div class="day" onclick="selectDia(${i}, this)">${i}</div>`; }
 
-        // 2. SELECCIONAR DÍA
-        function selectDia(dia, elem) {
-            document.querySelectorAll('.day').forEach(d => d.classList.remove('active'));
-            elem.classList.add('active');
-            fechaSel = dia + " de Enero";
-            verificar();
+        function selectDia(d, e) {
+            document.querySelectorAll('.day').forEach(x => x.classList.remove('active'));
+            e.classList.add('active'); fechaSel = d + " de Enero"; verificar();
         }
-
-        // 3. SELECCIONAR HORA
-        function selectHora(hora, elem) {
-            document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-            elem.classList.add('active');
-            horaSel = hora;
-            verificar();
+        function selectHora(h, e) {
+            document.querySelectorAll('.time-btn').forEach(x => x.classList.remove('active'));
+            e.classList.add('active'); horaSel = h; verificar();
         }
-
-        // 4. VERIFICAR PARA ACTIVAR BOTÓN
         function verificar() {
             const btn = document.getElementById('btnWsp');
-            if(fechaSel && horaSel) {
-                btn.disabled = false;
-                btn.innerHTML = `CONFIRMAR CITA: ${fechaSel} - ${horaSel} <i class="fab fa-whatsapp"></i>`;
-            }
+            if(fechaSel && horaSel) { btn.disabled = false; btn.innerText = `CONFIRMAR: ${fechaSel} - ${horaSel}`; }
         }
-
-        // 5. FUNCIÓN IR A WHATSAPP
         function irAWhatsapp() {
-            const telefono = "51943706614";
-            const texto = `Hola CONTASOL, deseo reservar mi consultoría gratuita para el día: ${fechaSel} a las ${horaSel}.`;
-            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`, '_blank');
+            window.open(`https://wa.me/51943706614?text=${encodeURIComponent(`Hola CONTASOL, deseo reservar cita: ${fechaSel} a las ${horaSel}`)}`, '_blank');
             cerrarModal();
         }
-
-        // MODAL
         function abrirModal() { document.getElementById('modalReserva').style.display = 'flex'; }
         function cerrarModal() { document.getElementById('modalReserva').style.display = 'none'; }
+
+        // --- 2. CHATBOT CON BOTONES ---
+        let chatIniciado = false;
+
+        function toggleChatbot() {
+            const c = document.getElementById('chatbotContainer');
+            c.style.display = c.style.display === 'flex' ? 'none' : 'flex';
+            if(!chatIniciado) { inicioChat(); chatIniciado = true; }
+        }
+
+        function inicioChat() {
+            addMsgBot("¡Hola! Bienvenido a CONTASOL. ¿En qué puedo ayudarte hoy?");
+            addOptions(["Nuestros Servicios", "Ubicación", "Horario", "Agendar Cita"]);
+        }
+
+        function addMsgBot(txt) {
+            const c = document.getElementById('chatbotMessages');
+            c.innerHTML += `<div class="message bot">${txt}</div>`;
+            c.scrollTop = c.scrollHeight;
+        }
+
+        function addMsgUser(txt) {
+            const c = document.getElementById('chatbotMessages');
+            c.innerHTML += `<div class="message user">${txt}</div>`;
+            c.scrollTop = c.scrollHeight;
+        }
+
+        function addOptions(opciones) {
+            const c = document.getElementById('chatbotMessages');
+            let htmlOps = `<div class="chat-options">`;
+            opciones.forEach(op => {
+                htmlOps += `<button class="chat-btn-option" onclick="procesarOpcion('${op}')">${op}</button>`;
+            });
+            htmlOps += `</div>`;
+            c.innerHTML += htmlOps;
+            c.scrollTop = c.scrollHeight;
+        }
+
+        function procesarOpcion(opcion) {
+            addMsgUser(opcion);
+            setTimeout(() => {
+                if(opcion === "Nuestros Servicios") {
+                    addMsgBot("Somos expertos en estos temas. Selecciona uno para más detalle:");
+                    addOptions(["Declaraciones", "Planillas", "Constitución"]);
+                } 
+                else if(opcion === "Declaraciones") {
+                    addMsgBot("Gestionamos tus impuestos mensuales (IGV-Renta) y anuales para evitar multas de SUNAT.");
+                    addOptions(["Volver al inicio", "Agendar Cita"]);
+                }
+                else if(opcion === "Planillas") {
+                    addMsgBot("Nos encargamos de boletas, CTS, gratificaciones y liquidaciones de tu personal.");
+                    addOptions(["Volver al inicio", "Agendar Cita"]);
+                }
+                else if(opcion === "Constitución") {
+                    addMsgBot("Formalizamos tu empresa en 72 horas: Búsqueda de nombre, Minuta, Notaría y RUC.");
+                    addOptions(["Volver al inicio", "Agendar Cita"]);
+                }
+                else if(opcion === "Ubicación") {
+                    addMsgBot("Estamos en Jr. Agusto B. Legia 798, Huaraz. Cerca a la Universidad Nacional.");
+                    addOptions(["Volver al inicio"]);
+                }
+                else if(opcion === "Horario") {
+                    addMsgBot("Atendemos de Lunes a Viernes de 9:00 AM a 6:00 PM.");
+                    addOptions(["Volver al inicio"]);
+                }
+                else if(opcion === "Agendar Cita") {
+                    addMsgBot("¡Perfecto! Abre el calendario para elegir tu fecha.");
+                    abrirModal();
+                }
+                else if(opcion === "Volver al inicio") {
+                    inicioChat();
+                }
+            }, 500);
+        }
+
+        function handleEnter(e) { if(e.key==='Enter') sendMessage(); }
+        function sendMessage() {
+            const i = document.getElementById('chatbotInput');
+            const txt = i.value.trim();
+            if(!txt) return;
+            addMsgUser(txt);
+            i.value = "";
+            setTimeout(() => {
+                addMsgBot("Para consultas personalizadas, por favor usa los botones o escríbenos al WhatsApp.");
+                addOptions(["Nuestros Servicios", "Agendar Cita"]);
+            }, 800);
+        }
     </script>
 </body>
 </html>
