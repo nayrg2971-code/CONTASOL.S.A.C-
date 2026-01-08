@@ -6,15 +6,16 @@
     <title>CONTASOL S.A.C. - Soluciones Contables</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- PALETA CORPORATIVA (Café & Dorado) --- */
+        /* --- PALETA CORPORATIVA --- */
         :root {
             --cafe-profundo: #2C1B18;
             --cafe-medio: #4B3621;
             --dorado: #C5A059;
-            --dorado-claro: #E5D3B3;
+            --dorado-brillante: #D4AF37;
             --beige: #F9F7F2;
             --blanco: #FFFFFF;
             --gris-texto: #555555;
+            --naranja-accion: #E67E22; /* Color similar al botón de tu imagen */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,75 +45,121 @@
         }
         .hero-content h2 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 300; }
         .hero-content h2 span { color: var(--dorado); font-weight: 700; }
+        
+        /* BOTÓN PRINCIPAL */
         .cta-button {
             display: inline-block; background: var(--dorado); color: var(--cafe-profundo); padding: 18px 40px;
             text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-            transition: 0.3s; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3); border-radius: 2px;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3); border-radius: 4px; cursor: pointer; border:none;
         }
         .cta-button:hover { background: var(--blanco); transform: translateY(-3px); }
 
-        /* --- ALIADOS (SUNAT / CCP) --- */
+        /* --- SECCIONES GENERALES --- */
+        .section-padding { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--cafe-profundo); margin-bottom: 3rem; position: relative; text-transform: uppercase; }
+        .section-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--dorado); }
+
+        /* --- ALIADOS --- */
         .partners { background: var(--blanco); padding: 40px 0; border-bottom: 1px solid #eee; }
         .partners-container { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; opacity: 0.7; }
         .partner-item { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: bold; color: var(--cafe-medio); filter: grayscale(100%); transition: 0.3s; }
         .partner-item:hover { filter: grayscale(0%); color: var(--dorado); }
-        .partner-item i { font-size: 2rem; }
 
-        /* --- SERVICES --- */
-        .services { padding: 80px 0; background: var(--beige); }
-        .section-title { text-align: center; font-size: 2.2rem; color: var(--cafe-profundo); margin-bottom: 3rem; position: relative; text-transform: uppercase; }
-        .section-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--dorado); }
+        /* --- SERVICIOS --- */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card { background: var(--blanco); padding: 40px 30px; text-align: center; transition: 0.3s; border-bottom: 3px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .service-card:hover { transform: translateY(-5px); border-bottom: 3px solid var(--dorado); }
         .service-icon { font-size: 2.5rem; color: var(--cafe-profundo); margin-bottom: 20px; }
 
         /* --- TESTIMONIOS --- */
-        .testimonials { padding: 80px 0; background: var(--cafe-profundo); color: white; }
+        .testimonials { background: var(--cafe-profundo); color: white; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .testimonial-card { background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--dorado); border-radius: 4px; }
         .testimonial-text { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; color: #ddd; }
         .client-name { color: var(--dorado); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
-        .stars { color: var(--dorado); margin-bottom: 10px; font-size: 0.8rem; }
 
-        /* --- AGENDAR CITA (CALENDARIO) --- */
-        .booking { padding: 80px 0; background: var(--blanco); text-align: center; }
-        .booking-box { 
-            max-width: 600px; margin: 0 auto; background: var(--beige); 
-            padding: 40px; border: 1px solid var(--dorado); border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        /* --- CONTACTO (NUEVO DISEÑO CON MAPA) --- */
+        .contact-section { background: var(--blanco); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .contact-info-box { background: var(--cafe-profundo); color: white; padding: 40px; border-radius: 10px; }
+        .contact-item { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-size: 1.1rem; }
+        .contact-item i { color: var(--dorado); font-size: 1.5rem; }
+        
+        /* Mapa Estático Simulado (Como en tu imagen) */
+        .map-container { 
+            background-image: url('https://i.ibb.co/wzn2gRL/mapa-huaraz.png'); /* Placeholder de mapa */
+            background-size: cover; background-position: center;
+            height: 300px; width: 100%; border-radius: 10px; border: 2px solid var(--dorado);
+            display: flex; align-items: center; justify-content: center;
         }
-        .date-picker {
-            width: 100%; padding: 15px; font-size: 1.1rem; 
-            border: 1px solid #ccc; margin: 20px 0; color: var(--cafe-profundo);
-            font-family: inherit;
-        }
-        .book-btn {
-            background: #25D366; color: white; border: none; padding: 15px 40px;
-            font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex;
-            align-items: center; justify-content: center; gap: 10px; margin: 0 auto;
-            border-radius: 50px; transition: 0.3s;
-        }
-        .book-btn:hover { background: #1ebc57; transform: scale(1.02); }
+        .map-placeholder-text { background: rgba(255,255,255,0.9); padding: 10px 20px; border-radius: 5px; font-weight: bold; color: var(--cafe-profundo); }
 
-        /* --- FOOTER & CHATBOT --- */
+        /* --- NUEVO MODAL DE RESERVA (ESTILO IMAGEN) --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(44, 27, 24, 0.95); z-index: 2000;
+            display: none; justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: white; width: 95%; max-width: 800px;
+            border-radius: 15px; overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease;
+        }
+        .modal-header {
+            background: var(--cafe-profundo); color: var(--dorado); padding: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-body {
+            padding: 30px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px;
+        }
+        
+        /* Calendario Visual */
+        .calendar-wrapper h3 { margin-bottom: 15px; color: var(--cafe-profundo); }
+        .calendar-grid {
+            display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center;
+        }
+        .day-name { font-weight: bold; font-size: 0.8rem; color: #999; margin-bottom: 5px; }
+        .day-num {
+            padding: 10px; border: 1px solid #eee; border-radius: 5px; cursor: pointer; transition: 0.2s;
+            font-weight: 500; color: var(--gris-texto);
+        }
+        .day-num:hover { border-color: var(--naranja-accion); color: var(--naranja-accion); }
+        .day-num.active { background: var(--naranja-accion); color: white; border-color: var(--naranja-accion); font-weight: bold; transform: scale(1.05); }
+        .day-num.disabled { background: #f9f9f9; color: #ddd; cursor: not-allowed; }
+
+        /* Horas */
+        .time-wrapper h3 { margin-bottom: 15px; color: var(--cafe-profundo); }
+        .time-slots { display: flex; flex-direction: column; gap: 10px; }
+        .time-btn {
+            padding: 12px; border: 1px solid #ccc; border-radius: 5px; background: white;
+            cursor: pointer; transition: 0.2s; font-size: 0.95rem; text-align: center;
+        }
+        .time-btn:hover { border-color: var(--naranja-accion); }
+        .time-btn.active { background: var(--naranja-accion); color: white; border-color: var(--naranja-accion); font-weight: bold; }
+
+        /* Resumen y Botón Final */
+        .booking-summary {
+            grid-column: 1 / -1; margin-top: 10px; padding-top: 20px; border-top: 1px solid #eee;
+            display: flex; flex-direction: column; align-items: center; gap: 15px;
+        }
+        .summary-text { font-size: 1.1rem; color: var(--naranja-accion); font-weight: bold; }
+        .whatsapp-submit-btn {
+            background: var(--naranja-accion); color: white; border: none; padding: 15px 50px;
+            font-size: 1.1rem; font-weight: bold; border-radius: 5px; cursor: pointer;
+            display: flex; align-items: center; gap: 10px; transition: 0.3s; width: 100%; justify-content: center;
+        }
+        .whatsapp-submit-btn:hover { background: #d35400; transform: translateY(-2px); }
+        .whatsapp-submit-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .modal-body { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        /* FOOTER */
         footer { background: #1a100e; color: #888; text-align: center; padding: 40px 0; border-top: 3px solid var(--dorado); font-size: 0.9rem; }
-        
-        .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; }
-        
-        /* Estilos del Chatbot (Iguales al anterior) */
-        .chatbot-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--dorado); color: var(--cafe-profundo); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; border: 2px solid white; }
-        .chatbot-container { position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px; background: white; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; z-index: 1000; border: 1px solid var(--dorado); overflow: hidden; }
-        .chatbot-header { background: var(--cafe-profundo); color: var(--dorado); padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; background: #fafafa; }
-        .chatbot-input { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 5px; }
-        .chatbot-input input { flex: 1; padding: 10px; border: 1px solid #ddd; }
-        .chatbot-input button { background: var(--dorado); border: none; padding: 10px; cursor: pointer; color: var(--cafe-profundo); font-weight: bold; }
-        .message { margin-bottom: 10px; padding: 10px; border-radius: 5px; font-size: 0.9rem; }
-        .message.bot { background: var(--dorado-claro); color: var(--cafe-profundo); align-self: flex-start; }
-        .message.user { background: var(--cafe-profundo); color: white; text-align: right; }
-
-        @media (max-width: 768px) { .nav-links { display: none; } .partners-container { flex-direction: column; gap: 20px; } }
     </style>
 </head>
 <body>
@@ -129,8 +176,8 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#citas">Agendar Cita</a></li>
+                <li><a href="#contacto">Ubicación</a></li>
+                <li><a href="#" onclick="abrirModal()" style="color:var(--naranja-accion); font-weight:bold;">RESERVAR CITA</a></li>
             </ul>
         </nav>
     </header>
@@ -139,7 +186,7 @@
         <div class="hero-content">
             <h2>CONTASOL S.A.C.<br><span>Aliados de tu Crecimiento</span></h2>
             <p>Soluciones contables y tributarias con el respaldo que tu empresa merece.</p>
-            <a href="#citas" class="cta-button">Reservar Asesoría</a>
+            <button onclick="abrirModal()" class="cta-button">RESERVAR ASESORÍA</button>
         </div>
     </section>
 
@@ -148,13 +195,13 @@
             <p style="text-align:center; color:#999; margin-bottom:20px; font-size:0.9rem; text-transform:uppercase;">Trabajamos bajo los lineamientos de</p>
             <div class="partners-container">
                 <div class="partner-item"><i class="fas fa-building"></i> SUNAT</div>
-                <div class="partner-item"><i class="fas fa-book-reader"></i> Colegio de Contadores Públicos</div>
+                <div class="partner-item"><i class="fas fa-book-reader"></i> Colegio de Contadores</div>
                 <div class="partner-item"><i class="fas fa-balance-scale"></i> Cámara de Comercio</div>
             </div>
         </div>
     </section>
 
-    <section id="servicios" class="services">
+    <section id="servicios" class="section-padding services" style="background:var(--beige);">
         <div class="container">
             <h2 class="section-title">Nuestra Experiencia</h2>
             <div class="services-grid">
@@ -177,19 +224,183 @@
         </div>
     </section>
 
-    <section id="testimonios" class="testimonials">
+    <section id="contacto" class="section-padding contact-section">
         <div class="container">
-            <h2 class="section-title" style="color:white;">Lo que dicen nuestros clientes</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="testimonial-text">"Desde que CONTASOL maneja mis libros, duermo tranquilo. La atención es A1 y siempre responden mis dudas al instante."</p>
-                    <p class="client-name">— Carlos M., Gerente de Importadora</p>
+            <h2 class="section-title">Ubícanos</h2>
+            <div class="contact-grid">
+                <div>
+                    <div class="map-container">
+                        <div class="map-placeholder-text"><i class="fas fa-map-marked-alt"></i> Ver en Google Maps</div>
+                    </div>
+                    <p style="margin-top:10px; font-size:0.9rem; text-align:center; color:#666;">Referencia: Cerca a la Universidad Nacional</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="testimonial-text">"Excelente servicio. Me ayudaron a formalizar mi emprendimiento y ahora tengo todo en regla con la SUNAT."</p>
-                    <p class="client-name">— Ana P., Dueña de Restaurante</p>
+                
+                <div class="contact-info-box">
+                    <h3 style="color:var(--dorado); margin-bottom:20px;">Información de Contacto</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i> 
+                        <div>
+                            <strong>WhatsApp Central:</strong><br>
+                            +51 943 706 614
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i> 
+                        <div>
+                            <strong>Correo Electrónico:</strong><br>
+                            nayrg2971@gmail.com
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <div>
+                            <strong>Dirección:</strong><br>
+                            Jr. Agusto B. Legia 798, Huaraz.
+                        </div>
+                    </div>
+
+                    <div style="margin-top:30px; border-top:1px solid #ffffff33; padding-top:20px;">
+                        <small style="color:var(--dorado);">MEDIOS DE PAGO ACEPTADOS:</small><br>
+                        <strong>BCP, BBVA, YAPE, PLIN</strong>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CONTASOL S.A.C. - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="modalReserva" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="far fa-calendar-alt"></i> Reserva tu Consultoría Gratuita</h3>
+                <span onclick="cerrarModal()" style="cursor:pointer; font-size:1.5rem;">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="calendar-wrapper">
+                    <h3 id="mesAnio">Enero 2026</h3> <div class="calendar-grid">
+                        <div class="day-name">Lu</div><div class="day-name">Ma</div><div class="day-name">Mi</div>
+                        <div class="day-name">Ju</div><div class="day-name">Vi</div><div class="day-name">Sa</div>
+                        <div class="day-name">Do</div>
+                        <div id="diasCalendario" style="display:contents;"></div>
+                    </div>
+                </div>
+
+                <div class="time-wrapper">
+                    <h3>Horas Disponibles:</h3>
+                    <div class="time-slots">
+                        <div class="time-btn" onclick="seleccionarHora(this, '09:00 AM')">09:00 AM</div>
+                        <div class="time-btn" onclick="seleccionarHora(this, '11:00 AM')">11:00 AM</div>
+                        <div class="time-btn" onclick="seleccionarHora(this, '03:00 PM')">03:00 PM</div>
+                        <div class="time-btn" onclick="seleccionarHora(this, '05:00 PM')">05:00 PM</div>
+                    </div>
+                </div>
+
+                <div class="booking-summary">
+                    <div class="summary-text" id="resumenCita"><i class="fas fa-thumbtack"></i> Selecciona un día y una hora</div>
+                    <button id="btnWhatsapp" class="whatsapp-submit-btn" onclick="enviarWhatsapp()" disabled>
+                        RESERVAR POR WHATSAPP <i class="fab fa-whatsapp"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- VARIABLES GLOBALES ---
+        let fechaSeleccionada = null; // Guardará "12 de Enero"
+        let horaSeleccionada = null;  // Guardará "03:00 PM"
+
+        // --- 1. GENERADOR DE CALENDARIO ---
+        function generarCalendario() {
+            const contenedor = document.getElementById('diasCalendario');
+            const titulo = document.getElementById('mesAnio');
+            
+            // Fecha actual
+            const fecha = new Date();
+            const mesNombres = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            
+            titulo.innerText = `${mesNombres[fecha.getMonth()]} ${fecha.getFullYear()}`;
+
+            // Limpiar
+            contenedor.innerHTML = '';
+
+            // Generar días falsos de relleno para empezar en el día correcto (Ej: Miércoles)
+            // Para simplificar, generaremos un mes genérico de 30 días empezando "en blanco"
+            for(let i=0; i<2; i++) {
+                contenedor.innerHTML += `<div></div>`; 
+            }
+
+            // Generar días del 1 al 30
+            for(let i=1; i<=31; i++) {
+                // Deshabilitar días pasados (simple visual)
+                let claseExtra = (i < fecha.getDate()) ? 'disabled' : '';
+                let clickEvent = (i < fecha.getDate()) ? '' : `onclick="seleccionarDia(this, '${i} de ${mesNombres[fecha.getMonth()]}')"`;
+                
+                contenedor.innerHTML += `<div class="day-num ${claseExtra}" ${clickEvent}>${i}</div>`;
+            }
+        }
+
+        // --- 2. LÓGICA DE SELECCIÓN ---
+        function seleccionarDia(elemento, textoFecha) {
+            // Quitar clase active de otros
+            document.querySelectorAll('.day-num').forEach(d => d.classList.remove('active'));
+            // Poner al actual
+            elemento.classList.add('active');
+            
+            fechaSeleccionada = textoFecha;
+            actualizarResumen();
+        }
+
+        function seleccionarHora(elemento, textoHora) {
+            document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+            elemento.classList.add('active');
+            
+            horaSeleccionada = textoHora;
+            actualizarResumen();
+        }
+
+        function actualizarResumen() {
+            const resumen = document.getElementById('resumenCita');
+            const btn = document.getElementById('btnWhatsapp');
+
+            if(fechaSeleccionada && horaSeleccionada) {
+                resumen.innerText = `📍 Cita: ${fechaSeleccionada} a las ${horaSeleccionada}`;
+                btn.disabled = false;
+            } else {
+                resumen.innerText = "Selecciona un día y una hora";
+                btn.disabled = true;
+            }
+        }
+
+        // --- 3. ENVÍO A WHATSAPP ---
+        function enviarWhatsapp() {
+            if(!fechaSeleccionada || !horaSeleccionada) return;
+
+            const telefono = "51943706614";
+            const mensaje = `Hola CONTASOL, deseo reservar mi consultoría gratuita para el día: ${fechaSeleccionada} a las ${horaSeleccionada}. Quedo a la espera de su confirmación.`;
+            
+            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+            cerrarModal();
+        }
+
+        // --- 4. CONTROL DEL MODAL ---
+        function abrirModal() {
+            document.getElementById('modalReserva').style.display = 'flex';
+            generarCalendario(); // Generar al abrir
+        }
+        function cerrarModal() {
+            document.getElementById('modalReserva').style.display = 'none';
+        }
+        
+        // Cerrar al dar clic fuera
+        window.onclick = function(e) {
+            if(e.target
