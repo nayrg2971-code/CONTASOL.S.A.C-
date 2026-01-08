@@ -3,676 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUREA - Consultoría Financiera Corporativa</title>
+    <title>CONTASOL S.A.C. - Soluciones Contables</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- PALETA DE COLORES CORPORATIVA (Café & Dorado) --- */
+        /* --- PALETA CORPORATIVA (Café & Dorado) --- */
         :root {
-            --cafe-profundo: #2C1B18;    /* Fondo oscuro / Textos principales */
-            --cafe-medio: #4B3621;       /* Elementos secundarios */
-            --dorado: #C5A059;           /* Acentos de lujo */
-            --dorado-claro: #E5D3B3;     /* Fondos suaves */
-            --beige: #F9F7F2;            /* Fondo general de la web */
+            --cafe-profundo: #2C1B18;
+            --cafe-medio: #4B3621;
+            --dorado: #C5A059;
+            --dorado-claro: #E5D3B3;
+            --beige: #F9F7F2;
             --blanco: #FFFFFF;
             --gris-texto: #555555;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente más corporativa */
-            line-height: 1.6;
-            color: var(--gris-texto);
-            background-color: var(--beige);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--gris-texto); background-color: var(--beige); }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* --- HEADER --- */
         header {
             background: var(--cafe-profundo);
             padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-bottom: 2px solid var(--dorado);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-bottom: 2px solid var(--dorado);
         }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; color: var(--blanco); }
+        .logo i { font-size: 2.2rem; color: var(--dorado); }
+        .logo h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; letter-spacing: 0.5px; }
+        .nav-links a:hover { color: var(--dorado); }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--blanco);
-        }
-
-        .logo i {
-            font-size: 2.5rem;
-            color: var(--dorado);
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .logo p {
-            font-size: 0.75rem;
-            color: var(--dorado);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links a:hover {
-            color: var(--dorado);
-        }
-
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
-            /* Fondo con degradado café y una imagen de oficina abstracta */
-            background: linear-gradient(rgba(44, 27, 24, 0.85), rgba(75, 54, 33, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--blanco);
-            margin-top: 0; /* Reset para que cubra todo */
+            background: linear-gradient(rgba(44, 27, 24, 0.9), rgba(75, 54, 33, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--blanco);
         }
-
-        .hero-content h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        
-        .hero-content h2 span {
-            color: var(--dorado);
-            font-weight: 700;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ddd;
-        }
-
+        .hero-content h2 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 300; }
+        .hero-content h2 span { color: var(--dorado); font-weight: 700; }
         .cta-button {
-            display: inline-block;
-            background: var(--dorado);
-            color: var(--cafe-profundo);
-            padding: 18px 40px;
-            text-decoration: none;
-            border-radius: 2px; /* Bordes más cuadrados para look corporativo */
-            font-weight: bold;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+            display: inline-block; background: var(--dorado); color: var(--cafe-profundo); padding: 18px 40px;
+            text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3); border-radius: 2px;
         }
+        .cta-button:hover { background: var(--blanco); transform: translateY(-3px); }
 
-        .cta-button:hover {
-            background: var(--blanco);
-            color: var(--cafe-profundo);
-            transform: translateY(-3px);
-        }
+        /* --- ALIADOS (SUNAT / CCP) --- */
+        .partners { background: var(--blanco); padding: 40px 0; border-bottom: 1px solid #eee; }
+        .partners-container { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; opacity: 0.7; }
+        .partner-item { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: bold; color: var(--cafe-medio); filter: grayscale(100%); transition: 0.3s; }
+        .partner-item:hover { filter: grayscale(0%); color: var(--dorado); }
+        .partner-item i { font-size: 2rem; }
 
-        /* --- SERVICES SECTION --- */
-        .services {
-            padding: 100px 0;
-            background: var(--blanco);
-        }
+        /* --- SERVICES --- */
+        .services { padding: 80px 0; background: var(--beige); }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--cafe-profundo); margin-bottom: 3rem; position: relative; text-transform: uppercase; }
+        .section-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--dorado); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: var(--blanco); padding: 40px 30px; text-align: center; transition: 0.3s; border-bottom: 3px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .service-card:hover { transform: translateY(-5px); border-bottom: 3px solid var(--dorado); }
+        .service-icon { font-size: 2.5rem; color: var(--cafe-profundo); margin-bottom: 20px; }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--cafe-profundo);
-            margin-bottom: 4rem;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* --- TESTIMONIOS --- */
+        .testimonials { padding: 80px 0; background: var(--cafe-profundo); color: white; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--dorado); border-radius: 4px; }
+        .testimonial-text { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; color: #ddd; }
+        .client-name { color: var(--dorado); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        .stars { color: var(--dorado); margin-bottom: 10px; font-size: 0.8rem; }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--dorado);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            background: var(--beige);
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--dorado);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            background: var(--blanco);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--cafe-profundo);
-            margin-bottom: 25px;
-        }
-
-        .service-card h3 {
-            color: var(--cafe-profundo);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-        }
-
-        /* --- ABOUT SECTION --- */
-        .about {
-            padding: 100px 0;
-            background-color: var(--cafe-profundo); /* Fondo oscuro elegante */
-            color: var(--blanco);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            color: var(--dorado);
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-
-        .about-text p {
-            color: #ddd;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            font-weight: 300;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            border: 5px solid var(--dorado); /* Marco dorado */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
-
-        /* --- CONTACT SECTION --- */
-        .contact {
-            padding: 100px 0;
-            background: var(--beige);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contact-info h3 {
-            color: var(--cafe-profundo);
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 20px;
-            color: var(--gris-texto);
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info i {
-            color: var(--dorado);
-            margin-right: 15px;
-            font-size: 1.2rem;
-            width: 25px;
-        }
-
-        .contact-form {
-            background: var(--blanco);
-            padding: 40px;
-            border-top: 5px solid var(--cafe-profundo);
+        /* --- AGENDAR CITA (CALENDARIO) --- */
+        .booking { padding: 80px 0; background: var(--blanco); text-align: center; }
+        .booking-box { 
+            max-width: 600px; margin: 0 auto; background: var(--beige); 
+            padding: 40px; border: 1px solid var(--dorado); border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            background: #fdfdfd;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            outline: none;
-            transition: border 0.3s;
+        .date-picker {
+            width: 100%; padding: 15px; font-size: 1.1rem; 
+            border: 1px solid #ccc; margin: 20px 0; color: var(--cafe-profundo);
+            font-family: inherit;
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--dorado);
+        .book-btn {
+            background: #25D366; color: white; border: none; padding: 15px 40px;
+            font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; gap: 10px; margin: 0 auto;
+            border-radius: 50px; transition: 0.3s;
         }
+        .book-btn:hover { background: #1ebc57; transform: scale(1.02); }
 
-        .submit-btn {
-            background: var(--cafe-profundo);
-            color: var(--dorado);
-            padding: 15px 35px;
-            border: 2px solid var(--cafe-profundo);
-            font-size: 1rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
+        /* --- FOOTER & CHATBOT --- */
+        footer { background: #1a100e; color: #888; text-align: center; padding: 40px 0; border-top: 3px solid var(--dorado); font-size: 0.9rem; }
+        
+        .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; }
+        
+        /* Estilos del Chatbot (Iguales al anterior) */
+        .chatbot-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--dorado); color: var(--cafe-profundo); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; border: 2px solid white; }
+        .chatbot-container { position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px; background: white; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; z-index: 1000; border: 1px solid var(--dorado); overflow: hidden; }
+        .chatbot-header { background: var(--cafe-profundo); color: var(--dorado); padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; background: #fafafa; }
+        .chatbot-input { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 5px; }
+        .chatbot-input input { flex: 1; padding: 10px; border: 1px solid #ddd; }
+        .chatbot-input button { background: var(--dorado); border: none; padding: 10px; cursor: pointer; color: var(--cafe-profundo); font-weight: bold; }
+        .message { margin-bottom: 10px; padding: 10px; border-radius: 5px; font-size: 0.9rem; }
+        .message.bot { background: var(--dorado-claro); color: var(--cafe-profundo); align-self: flex-start; }
+        .message.user { background: var(--cafe-profundo); color: white; text-align: right; }
 
-        .submit-btn:hover {
-            background: transparent;
-            color: var(--cafe-profundo);
-        }
-
-        /* --- CHATBOT & WHATSAPP --- */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px; /* Movido a la izquierda para balancear */
-            background: #25D366;
-            color: var(--blanco);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        .chatbot-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--dorado);
-            color: var(--cafe-profundo);
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 999;
-            border: 2px solid var(--blanco);
-        }
-
-        .chatbot-container {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: 380px;
-            height: 550px;
-            background: var(--blanco);
-            border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-            border: 1px solid var(--dorado-claro);
-            overflow: hidden;
-        }
-
-        .chatbot-header {
-            background: var(--cafe-profundo);
-            color: var(--dorado);
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--dorado);
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background: #FAFAFA;
-        }
-
-        .message.bot .message-content {
-            background: var(--dorado-claro);
-            color: var(--cafe-profundo);
-            border-radius: 15px 15px 15px 0;
-        }
-
-        .message.user .message-content {
-            background: var(--cafe-profundo);
-            color: var(--blanco);
-            border-radius: 15px 15px 0 15px;
-        }
-
-        .chatbot-input {
-            padding: 15px;
-            background: var(--white);
-            border-top: 1px solid #eee;
-        }
-
-        .chatbot-input button {
-            background: var(--dorado);
-            color: var(--cafe-profundo);
-            font-weight: bold;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #1a100e; /* Café casi negro */
-            color: #888;
-            text-align: center;
-            padding: 40px 0;
-            border-top: 3px solid var(--dorado);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-content h2 { font-size: 2.5rem; }
-            .about-content, .contact-content { grid-template-columns: 1fr; }
-            .chatbot-container { width: 90%; right: 5%; left: 5%; }
-        }
+        @media (max-width: 768px) { .nav-links { display: none; } .partners-container { flex-direction: column; gap: 20px; } }
     </style>
 </head>
 <body>
+
     <header>
         <nav class="container">
             <div class="logo">
-                <i class="fas fa-balance-scale"></i>
+                <i class="fas fa-chart-pie"></i>
                 <div>
-                    <h1>AUREA</h1>
-                    <p>Consultores</p>
+                    <h1>CONTASOL S.A.C.</h1>
+                    <p style="color:var(--dorado); font-size:0.7rem; letter-spacing:2px;">ASESORÍA EMPRESARIAL</p>
                 </div>
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Expertise</a></li>
-                <li><a href="#nosotros">La Firma</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#citas">Agendar Cita</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h2>Excelencia Financiera <br><span>& Tradición Corporativa</span></h2>
-            <p>Estrategias contables de alto nivel para empresas que buscan solidez y crecimiento sostenido.</p>
-            <a href="#contacto" class="cta-button">Agendar Consultoría</a>
+            <h2>CONTASOL S.A.C.<br><span>Aliados de tu Crecimiento</span></h2>
+            <p>Soluciones contables y tributarias con el respaldo que tu empresa merece.</p>
+            <a href="#citas" class="cta-button">Reservar Asesoría</a>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="container">
+            <p style="text-align:center; color:#999; margin-bottom:20px; font-size:0.9rem; text-transform:uppercase;">Trabajamos bajo los lineamientos de</p>
+            <div class="partners-container">
+                <div class="partner-item"><i class="fas fa-building"></i> SUNAT</div>
+                <div class="partner-item"><i class="fas fa-book-reader"></i> Colegio de Contadores Públicos</div>
+                <div class="partner-item"><i class="fas fa-balance-scale"></i> Cámara de Comercio</div>
+            </div>
         </div>
     </section>
 
     <section id="servicios" class="services">
         <div class="container">
-            <h2 class="section-title">Nuestras Soluciones</h2>
+            <h2 class="section-title">Nuestra Experiencia</h2>
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+                    <h3>Declaración Mensual</h3>
+                    <p>Gestión puntual de IGV y Renta ante SUNAT para evitar multas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Planillas y Laboral</h3>
+                    <p>Cálculo de beneficios sociales, gratificaciones y CTS conforme a ley.</p>
+                </div>
+                <div class="service-card">
                     <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Auditoría Fiscal</h3>
-                    <p>Análisis exhaustivo para garantizar el cumplimiento normativo y la optimización de recursos tributarios.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3>Gestión Patrimonial</h3>
-                    <p>Estrategias para proteger y maximizar el valor de los activos corporativos y familiares.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-landmark"></i></div>
-                    <h3>Consultoría Legal</h3>
-                    <p>Asesoramiento jurídico integral en materia contable, laboral y societaria.</p>
+                    <h3>Constitución de Empresas</h3>
+                    <p>Te acompañamos desde la minuta hasta la inscripción en RUC.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="nosotros" class="about">
+    <section id="testimonios" class="testimonials">
         <div class="container">
-            <h2 class="section-title" style="color:var(--blanco);">Nuestra Firma</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Más de una década de prestigio</h3>
-                    <p>AUREA Consultores nació con la visión de transformar la contabilidad tradicional en una herramienta estratégica de poder.</p>
-                    <p>Fundada bajo principios de integridad inquebrantable y precisión técnica, nuestra firma se ha consolidado como un referente para el sector empresarial moderno.</p>
-                    <p>No solo contamos números; interpretamos el lenguaje de los negocios para su éxito.</p>
+            <h2 class="section-title" style="color:white;">Lo que dicen nuestros clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Desde que CONTASOL maneja mis libros, duermo tranquilo. La atención es A1 y siempre responden mis dudas al instante."</p>
+                    <p class="client-name">— Carlos M., Gerente de Importadora</p>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Oficina Corporativa">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Excelente servicio. Me ayudaron a formalizar mi emprendimiento y ahora tengo todo en regla con la SUNAT."</p>
+                    <p class="client-name">— Ana P., Dueña de Restaurante</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2 class="section-title">Hablemos de Negocios</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Sede Central</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Financiera 123, Torre Oro, Oficina 501</p>
-                    <p><i class="fas fa-phone-alt"></i> Central: (01) 987-654-321</p>
-                    <p><i class="fas fa-envelope-open-text"></i> gerencia@aureaconsultores.com</p>
-                    <p><i class="fas fa-clock"></i> Atención: Lun - Vie, 8:30 AM - 6:00 PM</p>
-                    <br>
-                    <p style="font-style: italic; color: var(--dorado);">"La claridad es la base de la riqueza."</p>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Nombre Completo / Razón Social" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Correo Corporativo" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="4" placeholder="Detalle de su requerimiento..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Solicitud</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <a href="#" class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <div class="chatbot-toggle" onclick="toggleChatbot()">
-        <i class="fas fa-user-tie"></i>
-    </div>
-
-    <div class="chatbot-container" id="chatbotContainer">
-        <div class="chatbot-header">
-            <h3><i class="fas fa-comment-dots"></i> Asistente AUREA</h3>
-            <button class="chatbot-close" onclick="toggleChatbot()" style="background:none; border:none; color:var(--dorado); font-size:1.2rem; cursor:pointer;">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="message bot">
-                <div class="message-content">
-                    Bienvenido a AUREA. Soy su asistente corporativo. ¿Desea información sobre nuestra historia o servicios?
-                </div>
-            </div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="chatbotInput" placeholder="Consulte aquí..." onkeypress="handleChatbotKeyPress(event)" style="border-radius: 5px;">
-            <button onclick="sendMessage()" style="border-radius: 5px;">Enviar</button>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 AUREA CONSULTORES S.A.C. - Excelencia y Tradición.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Lógica del Chatbot Corporativo
-        function toggleChatbot() {
-            const container = document.getElementById('chatbotContainer');
-            container.style.display = container.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatbotInput');
-            const message = input.value.trim();
-            if (message) {
-                addMessage(message, 'user');
-                input.value = '';
-                setTimeout(() => {
-                    const response = getCorporateBotResponse(message);
-                    addMessage(response, 'bot');
-                }, 800);
-            }
-        }
-
-        function addMessage(text, sender) {
-            const container = document.getElementById('chatbotMessages');
-            const div = document.createElement('div');
-            div.className = `message ${sender}`;
-            div.innerHTML = `<div class="message-content">${text}</div>`;
-            container.appendChild(div);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function handleChatbotKeyPress(e) {
-            if (e.key === 'Enter') sendMessage();
-        }
-
-        // --- CEREBRO DEL BOT (Respuestas Corporativas) ---
-        function getCorporateBotResponse(input) {
-            const text = input.toLowerCase();
-
-            // Historia / Creación
-            if (text.includes('creo') || text.includes('creó') || text.includes('fundacion') || text.includes('historia') || text.includes('año') || text.includes('cuando')) {
-                return "AUREA Consultores fue fundada en el año 2010 por un grupo de auditores senior con la visión de elevar el estándar contable en la región. Llevamos más de 14 años de trayectoria.";
-            }
-            // Quiénes son
-            else if (text.includes('quienes') || text.includes('somos') || text.includes('empresa') || text.includes('firma')) {
-                return "Somos una firma boutique especializada en consultoría financiera y tributaria. Nos caracterizamos por la confidencialidad, la ética y resultados de alto impacto para nuestros socios comerciales.";
-            }
-            // Servicios
-            else if (text.includes('servicio') || text.includes('hacen') || text.includes('ofrecen')) {
-                return "Nuestras especialidades incluyen: Auditoría Fiscal, Gestión Patrimonial de Activos y Consultoría Legal Corporativa.";
-            }
-            // Ubicación / Contacto
-            else if (text.includes('donde') || text.includes('ubicacion') || text.includes('direccion') || text.includes('telefono')) {
-                return "Nuestras oficinas centrales se encuentran en la Torre Oro, Av. Financiera 123. Puede llamarnos directamente al (01) 987-654-321 para agendar una cita.";
-            }
-            // Saludos
-            else if (text.includes('hola') || text.includes('buenas')) {
-                return "Saludos cordiales. Es un placer atenderle. ¿En qué aspecto de su contabilidad requiere asistencia hoy?";
-            }
-            // Despedida
-            else if (text.includes('gracias') || text.includes('chau')) {
-                return "Ha sido un honor asistirle. En AUREA quedamos a su entera disposición.";
-            }
-            // Default
-            else {
-                return "Entiendo su consulta. Para brindarle una respuesta precisa, le sugiero contactar a nuestra área de gerencia al correo gerencia@aureaconsultores.com.";
-            }
-        }
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Form Submission Demo
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Solicitud enviada correctamente. Un asesor senior se pondrá en contacto a la brevedad.');
-            this.reset();
-        });
-    </script>
-</body>
-</html>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class
