@@ -421,13 +421,13 @@
             addMsgUser(txt);
             i.value = "";
 
-            // 2. Muestra que la IA está procesando
+            // 2. Muestra que la IA está procesando (los tres puntitos)
             const loadingId = "bot-loading-" + Date.now();
             c.innerHTML += `<div class="message bot" id="${loadingId}">...</div>`;
             c.scrollTop = c.scrollHeight;
 
             try {
-                // 3. Conexión con tu n8n local
+                // 3. Envía el mensaje a tu n8n local (URL de tus imágenes)
                 const response = await fetch("http://localhost:5678/webhook/asistente-contable", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -436,7 +436,7 @@
 
                 const data = await response.json();
                 
-                // 4. Quita los puntos y pon la respuesta de la IA
+                // 4. Quita los puntos y pon la respuesta real de la IA
                 const loadingElement = document.getElementById(loadingId);
                 if (loadingElement) loadingElement.remove();
                 
@@ -446,11 +446,10 @@
                 console.error("Error:", error);
                 const loadingElement = document.getElementById(loadingId);
                 if (loadingElement) {
-                    loadingElement.innerText = "Error: Asegúrate de que n8n esté abierto y en 'Active'.";
+                    loadingElement.innerText = "Error: Abre n8n en tu PC y ponlo en 'Active'.";
                 }
             }
         }
     </script>
 </body>
 </html>
-
